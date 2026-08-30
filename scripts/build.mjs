@@ -341,7 +341,7 @@ writeJson(path.join(api, "openapi.json"), {
   openapi: "3.1.0",
   info: {
     title: "Holodex API",
-    version: "1.1.0",
+    version: "1.1.1",
     description: "Static GET-only API for signed RapterBox Holo organism releases."
   },
   servers: [{ url: baseUrl }],
@@ -417,7 +417,7 @@ const manifest = {
   schema: "holodex-release/1",
   status: "candidate",
   release: "genesis-251-first-edition",
-  version: "1.1.0",
+  version: "1.1.1",
   publisher: "RapterBox LLC",
   authority: "https://rappter.com",
   issued_at_utc: releaseUtc,

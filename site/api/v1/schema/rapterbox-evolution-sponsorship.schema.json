@@ -1,6 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "RapterBox Evolution Sponsorship service line item",
+  "$id": "https://rappter.com/protocol/rapterbox-evolution-sponsorship-1.json",
+  "title": "Canonical signed RapterBox Evolution Sponsorship receipt",
+  "$comment": "The sponsorship_hash is SHA-256 over canonical JSON with sponsorship_hash and issuer_signature set to null. issuer_signature signs the canonical schema/hash/issuer tuple.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -17,6 +19,8 @@
     "accounting",
     "commercial_character",
     "purchased_utc",
+    "issuer_rappid",
+    "issuer_signature",
     "sponsorship_hash"
   ],
   "properties": {
@@ -34,18 +38,14 @@
       "pattern": "^[A-Z]{3}$"
     },
     "amount_minor": {
-      "$ref": "#/$defs/nonnegativeSafeInteger"
+      "$ref": "#/$defs/positiveSafeInteger"
     },
     "target": {
-      "enum": [
-        "instance",
-        "species-candidate"
-      ]
+      "const": "instance"
     },
     "target_id": {
       "type": "string",
-      "minLength": 1,
-      "maxLength": 256
+      "pattern": "^rappid:@rapterbox/owner-copy:[a-f0-9]{64}$"
     },
     "benefits": {
       "type": "object",
@@ -79,9 +79,7 @@
                 "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
               },
               "weight_milli": {
-                "type": "integer",
-                "minimum": 0,
-                "maximum": 1000000
+                "$ref": "#/$defs/nonnegativeSafeInteger"
               }
             }
           }
@@ -187,6 +185,15 @@
     "purchased_utc": {
       "$ref": "#/$defs/utc"
     },
+    "issuer_rappid": {
+      "type": "string",
+      "pattern": "^rappid:@[a-z0-9]+(?:-[a-z0-9]+)*/[a-z0-9]+(?:-[a-z0-9]+)*:[0-9a-f]{64}$"
+    },
+    "issuer_signature": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
     "sponsorship_hash": {
       "$ref": "#/$defs/hex64"
     }
@@ -203,6 +210,11 @@
     "nonnegativeSafeInteger": {
       "type": "integer",
       "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "positiveSafeInteger": {
+      "type": "integer",
+      "minimum": 1,
       "maximum": 9007199254740991
     }
   }

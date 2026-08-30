@@ -16,6 +16,11 @@
     "edition",
     "parent_frame",
     "compatibility_projection",
+    "canonical_promotion_hash",
+    "reveal_event_hash",
+    "rights_cleared",
+    "commercial_gate_id",
+    "issuance_authority_hash",
     "issuance_index",
     "title",
     "credit",
@@ -33,7 +38,7 @@
     "customer_private_context",
     "issued_utc",
     "issuer_rappid",
-    "issuance_signature"
+    "issuer_signature"
   ],
   "properties": {
     "schema": {
@@ -131,6 +136,23 @@
           "$ref": "#/$defs/hex64"
         }
       }
+    },
+    "canonical_promotion_hash": {
+      "$ref": "#/$defs/hex64"
+    },
+    "reveal_event_hash": {
+      "$ref": "#/$defs/hex64"
+    },
+    "rights_cleared": {
+      "const": true
+    },
+    "commercial_gate_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "issuance_authority_hash": {
+      "$ref": "#/$defs/hex64"
     },
     "issuance_index": {
       "type": "integer",
@@ -311,10 +333,10 @@
     "issuer_rappid": {
       "$ref": "#/$defs/rappid"
     },
-    "issuance_signature": {
+    "issuer_signature": {
       "type": "string",
       "minLength": 1,
-      "maxLength": 16384
+      "maxLength": 4096
     }
   },
   "$defs": {

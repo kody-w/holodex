@@ -14,6 +14,14 @@
     "offspring_rappid",
     "dimension_id",
     "conception_frame_hash",
+    "canonical_promotion_hash",
+    "reveal_event_hash",
+    "rights_cleared",
+    "commercial_gate_id",
+    "issuance_authority_hash",
+    "issuer_signature",
+    "chain_of_title_sha256",
+    "issuance_registry_head_sha256",
     "issuance_index",
     "credit_id",
     "owner_ref_hash",
@@ -51,6 +59,39 @@
       "pattern": "^dimension:[a-z0-9]+(?:-[a-z0-9]+)*:[a-f0-9]{64}$"
     },
     "conception_frame_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "canonical_promotion_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "reveal_event_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "rights_cleared": {
+      "const": true
+    },
+    "commercial_gate_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "issuance_authority_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "issuer_signature": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "chain_of_title_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "issuance_registry_head_sha256": {
       "type": "string",
       "pattern": "^[a-f0-9]{64}$"
     },

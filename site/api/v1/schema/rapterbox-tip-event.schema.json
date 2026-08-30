@@ -65,7 +65,7 @@
       "maximum": 9007199254740991
     },
     "suggested_tip_cap_bps": {
-      "const": 2500
+      "const": 20000
     },
     "suggested_tip_ratio_bps": {
       "type": "integer",
@@ -74,7 +74,7 @@
     "normalized_tip_ratio_bps": {
       "type": "integer",
       "minimum": 0,
-      "maximum": 2500
+      "maximum": 20000
     },
     "rating_independence": {
       "type": "object",

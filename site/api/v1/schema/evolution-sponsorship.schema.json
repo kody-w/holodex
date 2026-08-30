@@ -1,7 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://rappter.com/schemas/evolution-sponsorship-1.json",
-  "title": "Rapter paid evolution sponsorship",
+  "$id": "https://rappter.com/schemas/evolution-sponsorship-order-1.json",
+  "title": "Shopify Evolution Sponsorship order adapter",
+  "$comment": "Order adapter only. The authoritative signed receipt conforms to ../../protocol/rapterbox-evolution-sponsorship.schema.json with schema rapterbox-evolution-sponsorship/1.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -17,11 +18,13 @@
     "price_minor",
     "delivered_frames",
     "delivery_status",
-    "canon_acceptance_guaranteed"
+    "canon_acceptance_guaranteed",
+    "canonical_receipt_schema",
+    "canonical_receipt_hash"
   ],
   "properties": {
     "schema": {
-      "const": "rapp-evolution-sponsorship/1"
+      "const": "rapp-evolution-sponsorship-order/1"
     },
     "order_id": {
       "type": "string",
@@ -29,10 +32,7 @@
       "maxLength": 128
     },
     "target": {
-      "enum": [
-        "owner-controlled-organism",
-        "issuer-original-candidate"
-      ]
+      "const": "owner-controlled-organism"
     },
     "species_id": {
       "type": "string",
@@ -94,44 +94,60 @@
     },
     "canon_acceptance_guaranteed": {
       "type": "boolean"
+    },
+    "canonical_receipt_schema": {
+      "const": "rapterbox-evolution-sponsorship/1"
+    },
+    "canonical_receipt_hash": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[a-f0-9]{64}$"
     }
   },
   "allOf": [
     {
-      "if": {
-        "properties": {
-          "target": {
-            "const": "owner-controlled-organism"
-          }
-        }
-      },
-      "then": {
-        "required": [
-          "target_rappid"
-        ],
-        "properties": {
-          "target_rappid": {
-            "type": "string",
-            "minLength": 1
-          }
+      "required": [
+        "target_rappid"
+      ],
+      "properties": {
+        "target_rappid": {
+          "type": "string",
+          "pattern": "^rappid:@rapterbox/owner-copy:[a-f0-9]{64}$"
+        },
+        "canon_acceptance_guaranteed": {
+          "const": false
         }
       }
     },
     {
       "if": {
         "properties": {
-          "target": {
-            "const": "issuer-original-candidate"
+          "delivery_status": {
+            "const": "delivered"
           }
-        }
+        },
+        "required": [
+          "delivery_status"
+        ]
       },
       "then": {
         "properties": {
-          "target_rappid": {
-            "type": "null"
-          },
-          "canon_acceptance_guaranteed": {
-            "const": false
+          "canonical_receipt_hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "canonical_receipt_hash": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[a-f0-9]{64}$"
           }
         }
       }
