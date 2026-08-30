@@ -6,10 +6,13 @@ import { fileURLToPath } from "node:url";
 const repo = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const sourceDir = process.env.HOLODEX_SOURCE_DIR;
 const releaseUtc = process.env.HOLODEX_RELEASE_UTC;
+const baseUrl =
+  process.env.HOLODEX_BASE_URL || "https://kody-w.github.io/holodex";
 if (!sourceDir) throw new Error("HOLODEX_SOURCE_DIR is required");
 if (!releaseUtc || new Date(releaseUtc).toISOString() !== releaseUtc) {
   throw new Error("HOLODEX_RELEASE_UTC must be an exact ISO UTC timestamp");
 }
+new URL(baseUrl);
 
 const sourcePath = path.join(sourceDir, "genesis-251-reveal-policy.json");
 const sourceBytes = fs.readFileSync(sourcePath);
@@ -119,15 +122,17 @@ for (let offset = 0; offset < resources.length; offset += pageSize) {
     count: resources.length,
     next:
       offset + pageSize < resources.length
-        ? `/api/v1/species/page/${pageNumber + 1}.json`
+        ? `${baseUrl}/api/v1/species/page/${pageNumber + 1}.json`
         : null,
     previous:
-      pageNumber > 1 ? `/api/v1/species/page/${pageNumber - 1}.json` : null,
+      pageNumber > 1
+        ? `${baseUrl}/api/v1/species/page/${pageNumber - 1}.json`
+        : null,
     results: resources.slice(offset, offset + pageSize).map((resource) => ({
       name: null,
       id: resource.id,
       status: resource.reveal.status,
-      url: `/api/v1/species/${resource.id.toLowerCase()}.json`
+      url: `${baseUrl}/api/v1/species/${resource.id.toLowerCase()}.json`
     }))
   };
   pages.push(page);
@@ -138,7 +143,7 @@ writeJson(path.join(speciesDir, "index.json"), {
   count: resources.length,
   pages: pages.length,
   page_size: pageSize,
-  first: "/api/v1/species/page/1.json",
+  first: `${baseUrl}/api/v1/species/page/1.json`,
   results: pages.flatMap((page) => page.results)
 });
 writeJson(path.join(instanceDir, "index.json"), {
@@ -188,7 +193,7 @@ const frameWithoutHash = {
       slot: resource.slot,
       row: resource.frame_cut.row,
       column: resource.frame_cut.column,
-      resource_url: `./api/v1/species/${resource.id.toLowerCase()}.json`
+      resource_url: `${baseUrl}/api/v1/species/${resource.id.toLowerCase()}.json`
     })),
     ...controls
   ]
@@ -206,7 +211,7 @@ writeJson(path.join(api, "openapi.json"), {
     version: "1.0.0",
     description: "Static GET-only API for signed RapterBox Holo organism releases."
   },
-  servers: [{ url: "https://holodex.rappter.com" }],
+  servers: [{ url: baseUrl }],
   paths: {
     "/api/v1/species/index.json": {
       get: { summary: "List every canonical Holodex species resource" }

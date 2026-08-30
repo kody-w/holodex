@@ -5,12 +5,70 @@ const focusId = document.getElementById("focus-id");
 const focusTitle = document.getElementById("focus-title");
 const focusStatus = document.getElementById("focus-status");
 const focusCommitment = document.getElementById("focus-commitment");
+const releaseStatus = document.getElementById("release-status");
 
 function node(tag, className, text) {
   const value = document.createElement(tag);
   if (className) value.className = className;
   if (text !== undefined) value.textContent = String(text);
   return value;
+}
+
+function canonicalJson(value) {
+  if (Array.isArray(value)) return `[${value.map(canonicalJson).join(",")}]`;
+  if (value && typeof value === "object") {
+    return `{${Object.keys(value)
+      .sort()
+      .map((key) => `${JSON.stringify(key)}:${canonicalJson(value[key])}`)
+      .join(",")}}`;
+  }
+  return JSON.stringify(value);
+}
+
+function pemBytes(pem) {
+  const body = pem
+    .replace("-----BEGIN PUBLIC KEY-----", "")
+    .replace("-----END PUBLIC KEY-----", "")
+    .replace(/\s+/g, "");
+  return Uint8Array.from(atob(body), (character) => character.charCodeAt(0));
+}
+
+function base64UrlBytes(value) {
+  const normalized = value.replace(/-/g, "+").replace(/_/g, "/");
+  const padded = normalized.padEnd(Math.ceil(normalized.length / 4) * 4, "=");
+  return Uint8Array.from(atob(padded), (character) => character.charCodeAt(0));
+}
+
+async function verifyRelease() {
+  const response = await fetch("./api/v1/release/latest.json");
+  if (!response.ok) throw new Error(`release request failed: ${response.status}`);
+  const release = await response.json();
+  if (release.status !== "official") {
+    releaseStatus.textContent = "Candidate";
+    return release;
+  }
+  if (!release.signature_base64url || !release.public_key_sha256) {
+    throw new Error("official release is missing its signature");
+  }
+  const keyResponse = await fetch("./api/v1/release/public-key.pem");
+  if (!keyResponse.ok) throw new Error("release public key is unavailable");
+  const publicKey = await crypto.subtle.importKey(
+    "spki",
+    pemBytes(await keyResponse.text()),
+    { name: "Ed25519" },
+    false,
+    ["verify"]
+  );
+  const unsigned = { ...release, signature_base64url: null };
+  const valid = await crypto.subtle.verify(
+    "Ed25519",
+    publicKey,
+    base64UrlBytes(release.signature_base64url),
+    new TextEncoder().encode(canonicalJson(unsigned))
+  );
+  if (!valid) throw new Error("release signature is invalid");
+  releaseStatus.textContent = "Verified";
+  return release;
 }
 
 function silhouette(preview) {
@@ -58,6 +116,7 @@ function controlTile(control) {
 }
 
 async function main() {
+  await verifyRelease();
   const response = await fetch("./api/v1/frame/first-edition.json");
   if (!response.ok) throw new Error(`frame request failed: ${response.status}`);
   const frame = await response.json();
@@ -90,4 +149,5 @@ async function main() {
 main().catch((error) => {
   statusElement.textContent = `Holodex refused to render: ${error.message}`;
   statusElement.style.color = "var(--cp-danger)";
+  releaseStatus.textContent = "Refused";
 });

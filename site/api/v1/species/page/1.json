@@ -1,127 +1,127 @@
 {
   "count": 251,
-  "next": "/api/v1/species/page/2.json",
+  "next": "http://127.0.0.1:18080/api/v1/species/page/2.json",
   "previous": null,
   "results": [
     {
       "name": null,
       "id": "G001",
       "status": "undiscovered",
-      "url": "/api/v1/species/g001.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g001.json"
     },
     {
       "name": null,
       "id": "G002",
       "status": "undiscovered",
-      "url": "/api/v1/species/g002.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g002.json"
     },
     {
       "name": null,
       "id": "G003",
       "status": "undiscovered",
-      "url": "/api/v1/species/g003.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g003.json"
     },
     {
       "name": null,
       "id": "G004",
       "status": "undiscovered",
-      "url": "/api/v1/species/g004.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g004.json"
     },
     {
       "name": null,
       "id": "G005",
       "status": "undiscovered",
-      "url": "/api/v1/species/g005.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g005.json"
     },
     {
       "name": null,
       "id": "G006",
       "status": "undiscovered",
-      "url": "/api/v1/species/g006.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g006.json"
     },
     {
       "name": null,
       "id": "G007",
       "status": "undiscovered",
-      "url": "/api/v1/species/g007.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g007.json"
     },
     {
       "name": null,
       "id": "G008",
       "status": "undiscovered",
-      "url": "/api/v1/species/g008.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g008.json"
     },
     {
       "name": null,
       "id": "G009",
       "status": "undiscovered",
-      "url": "/api/v1/species/g009.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g009.json"
     },
     {
       "name": null,
       "id": "G010",
       "status": "undiscovered",
-      "url": "/api/v1/species/g010.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g010.json"
     },
     {
       "name": null,
       "id": "G011",
       "status": "undiscovered",
-      "url": "/api/v1/species/g011.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g011.json"
     },
     {
       "name": null,
       "id": "G012",
       "status": "undiscovered",
-      "url": "/api/v1/species/g012.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g012.json"
     },
     {
       "name": null,
       "id": "G013",
       "status": "undiscovered",
-      "url": "/api/v1/species/g013.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g013.json"
     },
     {
       "name": null,
       "id": "G014",
       "status": "undiscovered",
-      "url": "/api/v1/species/g014.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g014.json"
     },
     {
       "name": null,
       "id": "G015",
       "status": "undiscovered",
-      "url": "/api/v1/species/g015.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g015.json"
     },
     {
       "name": null,
       "id": "G016",
       "status": "undiscovered",
-      "url": "/api/v1/species/g016.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g016.json"
     },
     {
       "name": null,
       "id": "G017",
       "status": "undiscovered",
-      "url": "/api/v1/species/g017.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g017.json"
     },
     {
       "name": null,
       "id": "G018",
       "status": "undiscovered",
-      "url": "/api/v1/species/g018.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g018.json"
     },
     {
       "name": null,
       "id": "G019",
       "status": "undiscovered",
-      "url": "/api/v1/species/g019.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g019.json"
     },
     {
       "name": null,
       "id": "G020",
       "status": "undiscovered",
-      "url": "/api/v1/species/g020.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g020.json"
     }
   ]
 }

@@ -1,127 +1,127 @@
 {
   "count": 251,
-  "next": "/api/v1/species/page/8.json",
-  "previous": "/api/v1/species/page/6.json",
+  "next": "http://127.0.0.1:18080/api/v1/species/page/8.json",
+  "previous": "http://127.0.0.1:18080/api/v1/species/page/6.json",
   "results": [
     {
       "name": null,
       "id": "G121",
       "status": "undiscovered",
-      "url": "/api/v1/species/g121.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g121.json"
     },
     {
       "name": null,
       "id": "G122",
       "status": "undiscovered",
-      "url": "/api/v1/species/g122.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g122.json"
     },
     {
       "name": null,
       "id": "G123",
       "status": "undiscovered",
-      "url": "/api/v1/species/g123.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g123.json"
     },
     {
       "name": null,
       "id": "G124",
       "status": "undiscovered",
-      "url": "/api/v1/species/g124.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g124.json"
     },
     {
       "name": null,
       "id": "G125",
       "status": "undiscovered",
-      "url": "/api/v1/species/g125.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g125.json"
     },
     {
       "name": null,
       "id": "G126",
       "status": "undiscovered",
-      "url": "/api/v1/species/g126.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g126.json"
     },
     {
       "name": null,
       "id": "G127",
       "status": "undiscovered",
-      "url": "/api/v1/species/g127.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g127.json"
     },
     {
       "name": null,
       "id": "G128",
       "status": "undiscovered",
-      "url": "/api/v1/species/g128.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g128.json"
     },
     {
       "name": null,
       "id": "G129",
       "status": "undiscovered",
-      "url": "/api/v1/species/g129.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g129.json"
     },
     {
       "name": null,
       "id": "G130",
       "status": "undiscovered",
-      "url": "/api/v1/species/g130.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g130.json"
     },
     {
       "name": null,
       "id": "G131",
       "status": "undiscovered",
-      "url": "/api/v1/species/g131.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g131.json"
     },
     {
       "name": null,
       "id": "G132",
       "status": "undiscovered",
-      "url": "/api/v1/species/g132.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g132.json"
     },
     {
       "name": null,
       "id": "G133",
       "status": "undiscovered",
-      "url": "/api/v1/species/g133.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g133.json"
     },
     {
       "name": null,
       "id": "G134",
       "status": "undiscovered",
-      "url": "/api/v1/species/g134.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g134.json"
     },
     {
       "name": null,
       "id": "G135",
       "status": "undiscovered",
-      "url": "/api/v1/species/g135.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g135.json"
     },
     {
       "name": null,
       "id": "G136",
       "status": "undiscovered",
-      "url": "/api/v1/species/g136.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g136.json"
     },
     {
       "name": null,
       "id": "G137",
       "status": "undiscovered",
-      "url": "/api/v1/species/g137.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g137.json"
     },
     {
       "name": null,
       "id": "G138",
       "status": "undiscovered",
-      "url": "/api/v1/species/g138.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g138.json"
     },
     {
       "name": null,
       "id": "G139",
       "status": "undiscovered",
-      "url": "/api/v1/species/g139.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g139.json"
     },
     {
       "name": null,
       "id": "G140",
       "status": "undiscovered",
-      "url": "/api/v1/species/g140.json"
+      "url": "http://127.0.0.1:18080/api/v1/species/g140.json"
     }
   ]
 }

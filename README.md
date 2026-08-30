@@ -36,6 +36,7 @@ The API is static, unauthenticated, GET-only, and suitable for local caching.
 ```bash
 HOLODEX_SOURCE_DIR=/path/to/rapterbox/shopify/data \
 HOLODEX_RELEASE_UTC=2026-08-29T21:00:00.000Z \
+HOLODEX_BASE_URL=https://kody-w.github.io/holodex \
 npm run build
 npm test
 ```
