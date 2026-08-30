@@ -20,6 +20,7 @@
     "commercial_gate_id",
     "issuance_authority_hash",
     "issuer_signature",
+    "issuance_signature",
     "chain_of_title_sha256",
     "issuance_registry_head_sha256",
     "issuance_index",
@@ -83,6 +84,11 @@
       "pattern": "^[a-f0-9]{64}$"
     },
     "issuer_signature": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "issuance_signature": {
       "type": "string",
       "minLength": 1,
       "maxLength": 4096

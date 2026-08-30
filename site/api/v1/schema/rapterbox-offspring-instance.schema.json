@@ -38,7 +38,8 @@
     "customer_private_context",
     "issued_utc",
     "issuer_rappid",
-    "issuer_signature"
+    "issuer_signature",
+    "issuance_signature"
   ],
   "properties": {
     "schema": {
@@ -334,6 +335,11 @@
       "$ref": "#/$defs/rappid"
     },
     "issuer_signature": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "issuance_signature": {
       "type": "string",
       "minLength": 1,
       "maxLength": 4096

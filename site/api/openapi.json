@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Holodex API",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "description": "Static GET-only API for signed RapterBox Holo organism releases."
   },
   "servers": [

@@ -33,6 +33,11 @@ function filesUnder(directory) {
 
 const release = JSON.parse(fs.readFileSync(releasePath, "utf8"));
 const frame = JSON.parse(fs.readFileSync(framePath, "utf8"));
+const openapi = JSON.parse(
+  fs.readFileSync(path.join(site, "api/openapi.json"), "utf8")
+);
+assert.equal(release.version, "1.1.2");
+assert.equal(openapi.info.version, release.version);
 assert.deepEqual(release.original_title_summary, {
   issuer_owned: 251,
   transferred: 0,
