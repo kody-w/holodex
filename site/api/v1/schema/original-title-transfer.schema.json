@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rappter.com/schemas/original-title-transfer-1.json",
+  "title": "First Edition Original title transfer",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "original_id",
+    "original_rappid",
+    "source_edition",
+    "source_dimension",
+    "transfer_kind",
+    "prior_title_holder_ref_hash",
+    "new_title_holder_ref_hash",
+    "credit_id",
+    "capsule_hash",
+    "rights_profile_hash",
+    "rights_cleared",
+    "commercial_gate_id",
+    "consideration_ref_hash",
+    "sale_event_hash",
+    "original_identity_preserved",
+    "company_equity",
+    "transferred_at_utc"
+  ],
+  "properties": {
+    "schema": {
+      "const": "rapp-original-title-transfer/1"
+    },
+    "original_id": {
+      "type": "string",
+      "pattern": "^G[0-9]{3}$"
+    },
+    "original_rappid": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_edition": {
+      "const": "first-edition"
+    },
+    "source_dimension": {
+      "const": "first-dimension"
+    },
+    "transfer_kind": {
+      "enum": [
+        "issuer-sale",
+        "resale",
+        "gift",
+        "return",
+        "issuer-buyback"
+      ]
+    },
+    "prior_title_holder_ref_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "new_title_holder_ref_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "credit_id": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "capsule_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "rights_profile_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "rights_cleared": {
+      "const": true
+    },
+    "commercial_gate_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "consideration_ref_hash": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "sale_event_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "original_identity_preserved": {
+      "const": true
+    },
+    "company_equity": {
+      "const": false
+    },
+    "transferred_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

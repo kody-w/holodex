@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Holodex API",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Static GET-only API for signed RapterBox Holo organism releases."
   },
   "servers": [
@@ -40,6 +40,11 @@
     "/api/v1/dealer/index.json": {
       "get": {
         "summary": "List current RapterBox certified dealers"
+      }
+    },
+    "/api/v1/reveal-request/index.json": {
+      "get": {
+        "summary": "Read the optional-contact species reveal-request contract"
       }
     },
     "/api/v1/frame/first-edition.json": {

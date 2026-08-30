@@ -6,6 +6,11 @@
   "frame_cut": {
     "row": 11,
     "column": 8,
+    "x": 8192,
+    "y": 11264,
+    "width": 1024,
+    "height": 1024,
+    "units": "frame-unit",
     "rows": 16,
     "columns": 16
   },
@@ -21,15 +26,252 @@
   },
   "preview": {
     "kind": "authored-shadow-silhouette",
-    "silhouette": {
-      "form": "orb",
-      "phase": 342,
-      "layers": 2,
-      "drift": 1
-    }
+    "hash": "5f2fd123c580a081fc6aeafc368219cd4a22a28638d4b7f75ef33064dc15db91",
+    "rotation_mdeg": -14919,
+    "silhouette": [
+      [
+        -1420,
+        -1630
+      ],
+      [
+        -1231,
+        -1630
+      ],
+      [
+        -1231,
+        -1870
+      ],
+      [
+        -1041,
+        -1870
+      ],
+      [
+        -1041,
+        -1950
+      ],
+      [
+        -852,
+        -1950
+      ],
+      [
+        -852,
+        -1750
+      ],
+      [
+        -663,
+        -1750
+      ],
+      [
+        -663,
+        -1390
+      ],
+      [
+        -473,
+        -1390
+      ],
+      [
+        -473,
+        -1870
+      ],
+      [
+        -284,
+        -1870
+      ],
+      [
+        -284,
+        -1750
+      ],
+      [
+        -95,
+        -1750
+      ],
+      [
+        -95,
+        -1630
+      ],
+      [
+        95,
+        -1630
+      ],
+      [
+        95,
+        -1950
+      ],
+      [
+        284,
+        -1950
+      ],
+      [
+        284,
+        -1830
+      ],
+      [
+        473,
+        -1830
+      ],
+      [
+        473,
+        -1710
+      ],
+      [
+        663,
+        -1710
+      ],
+      [
+        852,
+        -1710
+      ],
+      [
+        852,
+        -1750
+      ],
+      [
+        1041,
+        -1750
+      ],
+      [
+        1041,
+        -1630
+      ],
+      [
+        1231,
+        -1630
+      ],
+      [
+        1231,
+        -1430
+      ],
+      [
+        1420,
+        -1430
+      ],
+      [
+        1420,
+        1830
+      ],
+      [
+        1231,
+        1830
+      ],
+      [
+        1231,
+        1670
+      ],
+      [
+        1041,
+        1670
+      ],
+      [
+        1041,
+        1950
+      ],
+      [
+        852,
+        1950
+      ],
+      [
+        852,
+        1590
+      ],
+      [
+        663,
+        1590
+      ],
+      [
+        663,
+        1710
+      ],
+      [
+        473,
+        1710
+      ],
+      [
+        473,
+        1790
+      ],
+      [
+        284,
+        1790
+      ],
+      [
+        284,
+        1470
+      ],
+      [
+        95,
+        1470
+      ],
+      [
+        -95,
+        1470
+      ],
+      [
+        -95,
+        1830
+      ],
+      [
+        -284,
+        1830
+      ],
+      [
+        -284,
+        1950
+      ],
+      [
+        -473,
+        1950
+      ],
+      [
+        -473,
+        1510
+      ],
+      [
+        -663,
+        1510
+      ],
+      [
+        -663,
+        1350
+      ],
+      [
+        -852,
+        1350
+      ],
+      [
+        -852,
+        1470
+      ],
+      [
+        -1041,
+        1470
+      ],
+      [
+        -1231,
+        1470
+      ],
+      [
+        -1231,
+        1670
+      ],
+      [
+        -1420,
+        1670
+      ],
+      [
+        -1420,
+        -1630
+      ]
+    ]
   },
   "discovery": {
-    "commitment": "6b90f2e4bf922f5ea2f22ef48d58cebdabc8c405d61338e1e210aa774ed245b9"
+    "commitment": "5d115a6ad70b0db8010839bf9b652ef3bf3f38fd8ca32f0041cf66b790a5b7a4"
+  },
+  "title": {
+    "class": "first-edition-original",
+    "current_holder": "RapterBox LLC",
+    "holder_surface": "https://rappter.com",
+    "status": "issuer-owned",
+    "transfer_count": 0
   },
   "holo": {
     "status": "candidate-not-published",
@@ -42,8 +284,8 @@
     "resource_url": null
   },
   "commerce": {
-    "source_purchasable": false,
-    "owner_copy_hatching_open": false,
+    "original_title_transfer_open": false,
+    "offspring_issuance_open": false,
     "job_commissions_open": false,
     "spot_market_open": false,
     "forecast_market_mode": "non-cash-lab-only"

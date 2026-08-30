@@ -7,7 +7,8 @@
   "required": [
     "schema",
     "species_id",
-    "instance_rappid",
+    "asset_class",
+    "organism_rappid",
     "current_holo_head",
     "generation",
     "dimension_id",
@@ -28,7 +29,13 @@
       "type": "string",
       "pattern": "^G[0-9]{3}$"
     },
-    "instance_rappid": {
+    "asset_class": {
+      "enum": [
+        "first-edition-original",
+        "offspring"
+      ]
+    },
+    "organism_rappid": {
       "type": "string",
       "minLength": 1
     },
@@ -133,7 +140,7 @@
       "required": [
         "completed_jobs",
         "technical_quality_bps",
-        "patronage_quality_bps",
+        "patronage_score_bps",
         "patronage_influence_bps",
         "tip_rate_bps",
         "tip_volume_minor",
@@ -158,7 +165,8 @@
           "minimum": 0,
           "maximum": 10000
         },
-        "patronage_quality_bps": {
+        "patronage_score_bps": {
+          "description": "Disclosed aggregate of verified benefit-free gratuity history. It is separate from technical quality, sponsorship, and spot transactions.",
           "type": [
             "integer",
             "null"
@@ -167,6 +175,7 @@
           "maximum": 9007199254740991
         },
         "patronage_influence_bps": {
+          "description": "Raw uncapped patronage contribution retained for concentration analysis. It does not alter technical quality, earned evolution, or official spot price.",
           "type": [
             "integer",
             "null"

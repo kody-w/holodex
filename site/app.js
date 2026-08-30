@@ -72,13 +72,20 @@ async function verifyRelease() {
 }
 
 function silhouette(preview) {
-  const visual = node("span", `silhouette ${preview.form}`);
-  visual.style.setProperty("--phase", `${preview.phase}deg`);
-  for (let index = 0; index < preview.layers; index += 1) {
-    const layer = node("span");
-    layer.style.setProperty("--layer", String(index + 1));
-    visual.append(layer);
-  }
+  const namespace = "http://www.w3.org/2000/svg";
+  const visual = document.createElementNS(namespace, "svg");
+  visual.setAttribute("class", "shadow-preview");
+  visual.setAttribute("viewBox", "-2200 -2200 4400 4400");
+  visual.setAttribute("aria-hidden", "true");
+  const group = document.createElementNS(namespace, "g");
+  group.setAttribute("transform", `rotate(${preview.rotation_mdeg / 1000})`);
+  const polygon = document.createElementNS(namespace, "polygon");
+  polygon.setAttribute(
+    "points",
+    preview.silhouette.map(([x, y]) => `${x},${y}`).join(" ")
+  );
+  group.append(polygon);
+  visual.append(group);
   return visual;
 }
 
@@ -90,7 +97,7 @@ function focus(resource, tile) {
   focusId.textContent = resource.id;
   focusTitle.textContent = "Undiscovered Holo organism";
   focusStatus.textContent =
-    "Species slot published / catalog controlled by RapterBox / rights clearance pending";
+    "First Edition Original / title issuer-held by RapterBox / untransferred / rights clearance pending";
   focusCommitment.textContent = `Discovery commitment ${resource.discovery.commitment}`;
 }
 
@@ -99,7 +106,7 @@ function organismTile(resource) {
   tile.type = "button";
   tile.dataset.search = resource.id.toLowerCase();
   tile.setAttribute("aria-label", `${resource.id}, undiscovered Holo organism`);
-  tile.append(silhouette(resource.preview.silhouette));
+  tile.append(silhouette(resource.preview));
   tile.append(node("span", "tile-id", resource.id));
   tile.append(node("span", "tile-state", "UNDISCOVERED"));
   tile.addEventListener("click", () => focus(resource, tile));
@@ -120,15 +127,13 @@ async function main() {
   const response = await fetch("./api/v1/frame/first-edition.json");
   if (!response.ok) throw new Error(`frame request failed: ${response.status}`);
   const frame = await response.json();
-  const resourceResponses = await Promise.all(
-    frame.tiles
-      .filter((tile) => tile.kind === "holo-organism")
-      .map((tile) => fetch(tile.resource_url).then((result) => result.json()))
-  );
-  const byId = new Map(resourceResponses.map((resource) => [resource.id, resource]));
   const tiles = frame.tiles.map((tile) =>
     tile.kind === "holo-organism"
-      ? organismTile(byId.get(tile.id))
+      ? organismTile({
+          id: tile.id,
+          preview: tile.preview,
+          discovery: { commitment: tile.discovery_commitment }
+        })
       : controlTile(tile)
   );
   tiles.forEach((tile) => frameElement.append(tile));

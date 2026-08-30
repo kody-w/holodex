@@ -1,0 +1,26 @@
+{
+  "schema": "holodex-reveal-request/1",
+  "state": "open",
+  "purpose": "Signal which sealed Genesis species should be considered for a future rights-cleared reveal.",
+  "submission": {
+    "method": "POST",
+    "url": "https://formspree.io/f/mgawgado",
+    "content_type": "application/json",
+    "fields": {
+      "species_id": "string, required, G001-G251",
+      "first_job": "string, required",
+      "name": "string, optional",
+      "email": "string, optional",
+      "source": "string, set to holodex-reveal-request"
+    }
+  },
+  "anonymous_allowed": true,
+  "privacy": "Name and email may be omitted. The form processor may receive standard network metadata.",
+  "promises": {
+    "purchase": false,
+    "ownership": false,
+    "investment": false,
+    "reveal": false
+  },
+  "human_view": "https://rappter.com/#reveal"
+}

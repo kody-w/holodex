@@ -1,16 +1,17 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://rappter.com/schemas/owner-instance-hatch-1.json",
-  "title": "Rapter owner instance hatch",
+  "$id": "https://rappter.com/schemas/offspring-instance-issuance-1.json",
+  "title": "Rapter offspring instance issuance",
   "type": "object",
   "additionalProperties": false,
   "required": [
     "schema",
-    "species_id",
+    "parent_original_id",
+    "parent_original_rappid",
     "source_edition",
     "source_dimension",
     "source_holo_id",
-    "instance_rappid",
+    "offspring_rappid",
     "dimension_id",
     "conception_frame_hash",
     "issuance_index",
@@ -21,11 +22,15 @@
   ],
   "properties": {
     "schema": {
-      "const": "rapp-owner-instance-hatch/1"
+      "const": "rapp-offspring-instance-issuance/1"
     },
-    "species_id": {
+    "parent_original_id": {
       "type": "string",
       "pattern": "^G[0-9]{3}$"
+    },
+    "parent_original_rappid": {
+      "type": "string",
+      "minLength": 1
     },
     "source_edition": {
       "const": "first-edition"
@@ -37,7 +42,7 @@
       "type": "string",
       "pattern": "^[a-f0-9]{64}$"
     },
-    "instance_rappid": {
+    "offspring_rappid": {
       "type": "string",
       "minLength": 1
     },

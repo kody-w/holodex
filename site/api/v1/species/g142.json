@@ -6,6 +6,11 @@
   "frame_cut": {
     "row": 8,
     "column": 13,
+    "x": 13312,
+    "y": 8192,
+    "width": 1024,
+    "height": 1024,
+    "units": "frame-unit",
     "rows": 16,
     "columns": 16
   },
@@ -21,15 +26,152 @@
   },
   "preview": {
     "kind": "authored-shadow-silhouette",
-    "silhouette": {
-      "form": "orb",
-      "phase": 249,
-      "layers": 2,
-      "drift": 1
-    }
+    "hash": "5fdf1c3a3eefaf3c7c7f94a7bde82b516bdc5b2df3371549c81be760eefbd6f7",
+    "rotation_mdeg": -14866,
+    "silhouette": [
+      [
+        -1630,
+        -1802
+      ],
+      [
+        -1222,
+        -1802
+      ],
+      [
+        -1222,
+        -1362
+      ],
+      [
+        -815,
+        -1362
+      ],
+      [
+        -815,
+        -1890
+      ],
+      [
+        -407,
+        -1890
+      ],
+      [
+        -407,
+        -1670
+      ],
+      [
+        0,
+        -1670
+      ],
+      [
+        0,
+        -1230
+      ],
+      [
+        408,
+        -1230
+      ],
+      [
+        408,
+        -1626
+      ],
+      [
+        815,
+        -1626
+      ],
+      [
+        815,
+        -1802
+      ],
+      [
+        1223,
+        -1802
+      ],
+      [
+        1223,
+        -1274
+      ],
+      [
+        1630,
+        -1274
+      ],
+      [
+        1630,
+        1890
+      ],
+      [
+        1223,
+        1890
+      ],
+      [
+        1223,
+        1758
+      ],
+      [
+        815,
+        1758
+      ],
+      [
+        815,
+        1494
+      ],
+      [
+        408,
+        1494
+      ],
+      [
+        408,
+        1274
+      ],
+      [
+        0,
+        1274
+      ],
+      [
+        0,
+        1230
+      ],
+      [
+        -407,
+        1230
+      ],
+      [
+        -407,
+        1846
+      ],
+      [
+        -815,
+        1846
+      ],
+      [
+        -815,
+        1670
+      ],
+      [
+        -1222,
+        1670
+      ],
+      [
+        -1222,
+        1802
+      ],
+      [
+        -1630,
+        1802
+      ],
+      [
+        -1630,
+        -1802
+      ]
+    ]
   },
   "discovery": {
-    "commitment": "90194e73f338e22e4183819a7967a125051afd219879853daedd6ebb40dcdd25"
+    "commitment": "73112803b1a3cad39681d304b98ceb41596ffe60d9d11668610a0cc5d2d51538"
+  },
+  "title": {
+    "class": "first-edition-original",
+    "current_holder": "RapterBox LLC",
+    "holder_surface": "https://rappter.com",
+    "status": "issuer-owned",
+    "transfer_count": 0
   },
   "holo": {
     "status": "candidate-not-published",
@@ -42,8 +184,8 @@
     "resource_url": null
   },
   "commerce": {
-    "source_purchasable": false,
-    "owner_copy_hatching_open": false,
+    "original_title_transfer_open": false,
+    "offspring_issuance_open": false,
     "job_commissions_open": false,
     "spot_market_open": false,
     "forecast_market_mode": "non-cash-lab-only"

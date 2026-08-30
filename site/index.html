@@ -11,7 +11,7 @@
   </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The signed First Edition catalog for 251 undiscovered RapterBox Holo species slots.">
+  <meta name="description" content="The signed First Edition catalog for 251 issuer-held, untransferred, undiscovered RapterBox Holo Originals.">
   <title>Holodex / Genesis 251 First Edition</title>
   <style>
     :root {
@@ -76,6 +76,7 @@
     <nav aria-label="Primary">
       <a href="#frame">First Edition</a>
       <a href="#api">API</a>
+      <a class="request-link" href="https://rappter.com/#reveal">Request a reveal</a>
       <a href="./api/v1/release/latest.json">Release stamp</a>
     </nav>
   </header>
@@ -84,13 +85,14 @@
     <section class="hero">
       <div>
         <p class="eyebrow">OFFICIAL RAPTERBOX HOLODEX</p>
-        <h1>251 Holo species slots.<br>Zero discovered.</h1>
-        <p class="lede">One signed First Edition / First Dimension catalog. Every cell reserves a species slot and authored shadow preview; candidate Holos and Growls remain private pending clearance and reveal.</p>
+        <h1>251 Holo Originals.<br>Zero discovered.</h1>
+        <p class="lede">One signed First Edition / First Dimension catalog. Every organism cell identifies a unique issuer-held Original and authored shadow preview; candidate Holos and Growls remain private pending clearance and reveal.</p>
       </div>
       <dl class="stats">
         <div><dt>Frame</dt><dd>16 x 16</dd></div>
         <div><dt>Organisms</dt><dd>251</dd></div>
-        <div><dt>Catalog control</dt><dd>RapterBox LLC</dd></div>
+        <div><dt>Original title</dt><dd>251 / 251 issuer-held</dd></div>
+        <div><dt>Transferred</dt><dd>0 / 251</dd></div>
         <div><dt>Revealed</dt><dd id="revealed-count">0 / 251</dd></div>
         <div><dt>Release stamp</dt><dd id="release-status">Checking</dd></div>
       </dl>
@@ -107,7 +109,7 @@
         <div>
           <span id="focus-id" class="mono">G001</span>
           <h3 id="focus-title">Undiscovered Holo organism</h3>
-          <p id="focus-status">Species slot published / catalog controlled by RapterBox / rights clearance pending</p>
+          <p id="focus-status">First Edition Original / title issuer-held by RapterBox / untransferred / rights clearance pending</p>
           <p id="focus-commitment" class="mono commitment"></p>
         </div>
         <button type="button" disabled>Growl unavailable until cleared reveal</button>
@@ -122,18 +124,19 @@
         <code>GET /api/v1/species/g001.json</code>
         <code>GET /api/v1/instance/index.json</code>
         <code>GET /api/v1/dealer/index.json</code>
+        <code>GET /api/v1/reveal-request/index.json</code>
         <code>GET /api/v1/frame/first-edition.json</code>
         <code>GET /api/v1/release/latest.json</code>
         <code>GET /api/v1/schema/dogg-market-profile.schema.json</code>
         <code>GET /api/openapi.json</code>
       </div>
-      <p class="muted">Cache responses locally. The API never accepts credentials, payments, trades, or private customer content.</p>
+      <p class="muted">Cache responses locally. Holodex never accepts credentials, payments, trades, or private customer content. The reveal-request resource only describes a separate optional-contact form.</p>
     </section>
   </main>
 
   <footer>
     <span>Published by RapterBox LLC through rappter.com.</span>
-    <span>Metadata API open for consumption. Player-instance Holo and Growl rights follow signed title records.</span>
+    <span>Metadata API open for consumption. Original and offspring Holo/Growl rights follow signed title and license records.</span>
   </footer>
 </body>
 </html>
