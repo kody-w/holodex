@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "publisher": "RapterBox LLC",
   "authority": "https://rappter.com",
-  "issued_at_utc": "2026-08-30T01:57:53.000Z",
+  "issued_at_utc": "2026-08-30T01:59:26.000Z",
   "source_sha256": "6756fc1c3a95ec4c4c525e75549b9ac861ca511ac09d5152cf1c47b26534c444",
   "frame_sha256": "651c989673cab38fbdc0a0b89e9be9f27cbb57c9c146c74b88c702db47ecd222",
   "organism_count": 251,
@@ -297,5 +297,5 @@
   },
   "public_key_sha256": "b0ddec65fff8b99d39c2f6860a301404e79cdeba3655adf6df11c89d73ee324f",
   "signature_algorithm": "Ed25519",
-  "signature_base64url": "lxa1nxyvk6XUVqtn_Ihy18i1lnkxluG0x4VXC9yEh26vXLOH95KzGIzhZIj80-D_pMewvwXfi9aGcj5dUY8wBw"
+  "signature_base64url": "c1-bRpvRy4Z0Vd3G9gNYb5BdonigDr2pQO-Q3T7xoC0bYCrzlZXbq3BAFC8XEi5v5DHx5i2t1wpE4pFsPHTPCQ"
 }
