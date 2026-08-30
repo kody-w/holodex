@@ -30,15 +30,15 @@
     },
     "target": {
       "enum": [
-        "owner-instance",
-        "canonical-species-candidate"
+        "owner-controlled-organism",
+        "issuer-original-candidate"
       ]
     },
     "species_id": {
       "type": "string",
       "pattern": "^G[0-9]{3}$"
     },
-    "instance_rappid": {
+    "target_rappid": {
       "type": [
         "string",
         "null"
@@ -101,16 +101,16 @@
       "if": {
         "properties": {
           "target": {
-            "const": "owner-instance"
+            "const": "owner-controlled-organism"
           }
         }
       },
       "then": {
         "required": [
-          "instance_rappid"
+          "target_rappid"
         ],
         "properties": {
-          "instance_rappid": {
+          "target_rappid": {
             "type": "string",
             "minLength": 1
           }
@@ -121,13 +121,13 @@
       "if": {
         "properties": {
           "target": {
-            "const": "canonical-species-candidate"
+            "const": "issuer-original-candidate"
           }
         }
       },
       "then": {
         "properties": {
-          "instance_rappid": {
+          "target_rappid": {
             "type": "null"
           },
           "canon_acceptance_guaranteed": {

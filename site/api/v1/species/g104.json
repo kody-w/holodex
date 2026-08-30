@@ -6,6 +6,11 @@
   "frame_cut": {
     "row": 6,
     "column": 7,
+    "x": 7168,
+    "y": 6144,
+    "width": 1024,
+    "height": 1024,
+    "units": "frame-unit",
     "rows": 16,
     "columns": 16
   },
@@ -21,15 +26,196 @@
   },
   "preview": {
     "kind": "authored-shadow-silhouette",
-    "silhouette": {
-      "form": "spire",
-      "phase": 171,
-      "layers": 5,
-      "drift": 3
-    }
+    "hash": "cf529c5273abc9e8dc24b73da188f245018240fef8b27389dd02e827e39bad52",
+    "rotation_mdeg": -14999,
+    "silhouette": [
+      [
+        -1560,
+        -1410
+      ],
+      [
+        -1276,
+        -1410
+      ],
+      [
+        -1276,
+        -1210
+      ],
+      [
+        -993,
+        -1210
+      ],
+      [
+        -993,
+        -1350
+      ],
+      [
+        -709,
+        -1350
+      ],
+      [
+        -709,
+        -1170
+      ],
+      [
+        -425,
+        -1170
+      ],
+      [
+        -425,
+        -1430
+      ],
+      [
+        -142,
+        -1430
+      ],
+      [
+        -142,
+        -1470
+      ],
+      [
+        142,
+        -1470
+      ],
+      [
+        142,
+        -1290
+      ],
+      [
+        425,
+        -1290
+      ],
+      [
+        425,
+        -1330
+      ],
+      [
+        709,
+        -1330
+      ],
+      [
+        709,
+        -1350
+      ],
+      [
+        993,
+        -1350
+      ],
+      [
+        993,
+        -1450
+      ],
+      [
+        1276,
+        -1450
+      ],
+      [
+        1560,
+        -1450
+      ],
+      [
+        1560,
+        1310
+      ],
+      [
+        1276,
+        1310
+      ],
+      [
+        1276,
+        1430
+      ],
+      [
+        993,
+        1430
+      ],
+      [
+        993,
+        1230
+      ],
+      [
+        709,
+        1230
+      ],
+      [
+        709,
+        1430
+      ],
+      [
+        425,
+        1430
+      ],
+      [
+        425,
+        1410
+      ],
+      [
+        142,
+        1410
+      ],
+      [
+        142,
+        1290
+      ],
+      [
+        -142,
+        1290
+      ],
+      [
+        -142,
+        1250
+      ],
+      [
+        -425,
+        1250
+      ],
+      [
+        -425,
+        1190
+      ],
+      [
+        -709,
+        1190
+      ],
+      [
+        -709,
+        1210
+      ],
+      [
+        -993,
+        1210
+      ],
+      [
+        -993,
+        1250
+      ],
+      [
+        -1276,
+        1250
+      ],
+      [
+        -1276,
+        1450
+      ],
+      [
+        -1560,
+        1450
+      ],
+      [
+        -1560,
+        -1410
+      ]
+    ]
   },
   "discovery": {
-    "commitment": "bb55d534d11f6a48ffb9728eb72f14102246b92fdf3e91ef2ca22a0f6b1273f2"
+    "commitment": "2d78f873aecb71bf1fff6cfbdf769248489315984ede4d1a0338dc8610f098fc"
+  },
+  "title": {
+    "class": "first-edition-original",
+    "current_holder": "RapterBox LLC",
+    "holder_surface": "https://rappter.com",
+    "status": "issuer-owned",
+    "transfer_count": 0
   },
   "holo": {
     "status": "candidate-not-published",
@@ -42,8 +228,8 @@
     "resource_url": null
   },
   "commerce": {
-    "source_purchasable": false,
-    "owner_copy_hatching_open": false,
+    "original_title_transfer_open": false,
+    "offspring_issuance_open": false,
     "job_commissions_open": false,
     "spot_market_open": false,
     "forecast_market_mode": "non-cash-lab-only"

@@ -8,7 +8,8 @@
     "schema",
     "job_id",
     "species_id",
-    "instance_rappid",
+    "asset_class",
+    "organism_rappid",
     "amount_minor",
     "currency",
     "suggested_minor",
@@ -19,7 +20,7 @@
     "voluntary",
     "rating_conditioned",
     "patronage_class",
-    "market_influence_bps",
+    "patronage_influence_bps",
     "allocation",
     "split_policy_hash"
   ],
@@ -35,7 +36,13 @@
       "type": "string",
       "pattern": "^G[0-9]{3}$"
     },
-    "instance_rappid": {
+    "asset_class": {
+      "enum": [
+        "first-edition-original",
+        "offspring"
+      ]
+    },
+    "organism_rappid": {
       "type": "string",
       "minLength": 1
     },
@@ -55,7 +62,7 @@
       "minimum": 1
     },
     "normalized_ratio_bps": {
-      "description": "Tip divided by suggestion, capped at 200% so one large tip cannot dominate quality signals.",
+      "description": "Tip divided by suggestion, capped at 200% for bounded comparative reporting. It does not alter technical quality or official spot price.",
       "type": [
         "integer",
         "null"
@@ -88,8 +95,8 @@
         "founding"
       ]
     },
-    "market_influence_bps": {
-      "description": "Disclosed raw patronage contribution to market alpha. This is intentionally not capped to the technical quality scale.",
+    "patronage_influence_bps": {
+      "description": "Disclosed raw contribution to the Patronage Score. It is intentionally not capped to the technical quality scale and is not an official spot-price input.",
       "type": "integer",
       "minimum": 0,
       "maximum": 9007199254740991

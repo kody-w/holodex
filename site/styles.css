@@ -49,6 +49,11 @@ nav a {
   text-decoration: none;
 }
 
+nav .request-link {
+  color: var(--cp-accent);
+  font-weight: 700;
+}
+
 .hero {
   min-height: 72vh;
   display: grid;
@@ -228,6 +233,21 @@ input:focus {
   font: 700 0.42rem/1 Consolas, "Courier New", Courier, monospace;
 }
 
+.shadow-preview {
+  position: absolute;
+  inset: 0.35rem;
+  width: calc(100% - 0.7rem);
+  height: calc(100% - 0.7rem);
+  color: var(--cp-text);
+  opacity: 0.82;
+}
+
+.shadow-preview polygon {
+  fill: currentColor;
+  stroke: var(--cp-border-strong);
+  stroke-width: 70;
+}
+
 .silhouette,
 .silhouette::before,
 .silhouette::after,
@@ -343,6 +363,9 @@ footer {
 
 @media (max-width: 760px) {
   nav {
+    display: flex;
+  }
+  nav a:not(.request-link) {
     display: none;
   }
   .hero,

@@ -24,13 +24,35 @@ function sha256(data) {
   return crypto.createHash("sha256").update(data).digest("hex");
 }
 
+function filesUnder(directory) {
+  return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    const full = path.join(directory, entry.name);
+    return entry.isDirectory() ? filesUnder(full) : [full];
+  });
+}
+
 const release = JSON.parse(fs.readFileSync(releasePath, "utf8"));
 const frame = JSON.parse(fs.readFileSync(framePath, "utf8"));
+assert.deepEqual(release.original_title_summary, {
+  issuer_owned: 251,
+  transferred: 0,
+  undiscovered: 251,
+  inventory_not_equity: true
+});
+assert.match(release.authored_holo_frame_sha256, /^[a-f0-9]{64}$/);
+assert.match(release.authored_holo_frame_hash, /^[a-f0-9]{64}$/);
 assert.equal(frame.organism_tiles, 251);
 assert.equal(frame.control_tiles, 5);
 assert.equal(frame.tiles.length, 256);
 assert.equal(frame.reveal_count, 0);
+assert.equal(frame.authored_holo_frame_hash, release.authored_holo_frame_hash);
 assert.deepEqual(frame.dimensions, { rows: 16, columns: 16 });
+assert.deepEqual(frame.original_title_summary, {
+  issuer_owned: 251,
+  transferred: 0,
+  undiscovered: 251,
+  inventory_not_equity: true
+});
 assert.equal(
   new Set(
     frame.tiles
@@ -38,6 +60,16 @@ assert.equal(
       .map((tile) => tile.id)
   ).size,
   251
+);
+assert(
+  frame.tiles
+    .filter((tile) => tile.kind === "holo-organism")
+    .every(
+      (tile) =>
+        /^[a-f0-9]{64}$/.test(tile.preview.hash) &&
+        tile.preview.silhouette.length >= 3 &&
+        /^[a-f0-9]{64}$/.test(tile.discovery_commitment)
+    )
 );
 
 for (const [relative, expected] of Object.entries(release.files)) {
@@ -74,8 +106,22 @@ for (const name of resources) {
   assert.match(resource.discovery.commitment, /^[a-f0-9]{64}$/);
   assert.equal(resource.catalog_control.legal_entity, "RapterBox LLC");
   assert.equal(resource.catalog_control.rights_status, "clearance-pending");
-  assert.equal(resource.commerce.source_purchasable, false);
-  assert.equal(resource.commerce.owner_copy_hatching_open, false);
+  assert.equal(resource.title.class, "first-edition-original");
+  assert.equal(resource.title.current_holder, "RapterBox LLC");
+  assert.equal(resource.title.status, "issuer-owned");
+  assert.equal(resource.title.transfer_count, 0);
+  assert.match(resource.preview.hash, /^[a-f0-9]{64}$/);
+  assert(resource.preview.silhouette.length >= 3);
+  assert(
+    resource.preview.silhouette.every(
+      (point) =>
+        Array.isArray(point) &&
+        point.length === 2 &&
+        point.every(Number.isInteger)
+    )
+  );
+  assert.equal(resource.commerce.original_title_transfer_open, false);
+  assert.equal(resource.commerce.offspring_issuance_open, false);
 }
 
 const instances = JSON.parse(
@@ -89,12 +135,32 @@ const dealers = JSON.parse(
 assert.equal(dealers.external_certified_count, 0);
 assert.equal(dealers.direct_issuer.legal_name, "RapterBox LLC");
 
+const revealRequest = JSON.parse(
+  fs.readFileSync(path.join(site, "api/v1/reveal-request/index.json"), "utf8")
+);
+assert.equal(revealRequest.state, "open");
+assert.equal(revealRequest.anonymous_allowed, true);
+assert.match(revealRequest.submission.fields.name, /optional/);
+assert.match(revealRequest.submission.fields.email, /optional/);
+assert.equal(revealRequest.promises.purchase, false);
+assert.equal(revealRequest.promises.reveal, false);
+
 const schemas = fs
   .readdirSync(path.join(site, "api/v1/schema"))
   .filter((name) => name.endsWith(".schema.json"));
 assert(schemas.length >= 5);
 for (const name of schemas) {
   JSON.parse(fs.readFileSync(path.join(site, "api/v1/schema", name), "utf8"));
+}
+
+for (const file of filesUnder(site)) {
+  const body = fs.readFileSync(file, "utf8");
+  assert(!body.includes("/Users/"), `${file} contains an absolute local path`);
+  assert(!body.includes("CODE RED"), `${file} contains private strategy text`);
+  assert(
+    !body.includes("BEGIN PRIVATE KEY"),
+    `${file} contains private signing material`
+  );
 }
 
 console.log(
