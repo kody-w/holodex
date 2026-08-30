@@ -15,6 +15,8 @@ if (!releaseUtc || new Date(releaseUtc).toISOString() !== releaseUtc) {
 new URL(baseUrl);
 
 const sourcePath = path.join(sourceDir, "genesis-251-reveal-policy.json");
+const contractDir =
+  process.env.HOLODEX_CONTRACT_DIR || path.resolve(sourceDir, "..", "contracts");
 const sourceBytes = fs.readFileSync(sourcePath);
 const source = JSON.parse(sourceBytes);
 const site = path.join(repo, "site");
@@ -26,6 +28,7 @@ const instanceDir = path.join(v1, "instance");
 const dealerDir = path.join(v1, "dealer");
 const frameDir = path.join(v1, "frame");
 const releaseDir = path.join(v1, "release");
+const schemaDir = path.join(v1, "schema");
 
 function sha256(data) {
   return crypto.createHash("sha256").update(data).digest("hex");
@@ -66,6 +69,16 @@ fs.rmSync(dealerDir, { recursive: true, force: true });
 fs.mkdirSync(pageDir, { recursive: true });
 fs.mkdirSync(frameDir, { recursive: true });
 fs.mkdirSync(releaseDir, { recursive: true });
+fs.rmSync(schemaDir, { recursive: true, force: true });
+fs.mkdirSync(schemaDir, { recursive: true });
+
+const schemaFiles = fs
+  .readdirSync(contractDir)
+  .filter((name) => name.endsWith(".schema.json"))
+  .sort();
+for (const name of schemaFiles) {
+  fs.copyFileSync(path.join(contractDir, name), path.join(schemaDir, name));
+}
 
 const resources = source.entries.map((entry) => ({
   schema: "holodex-species/1",
@@ -91,13 +104,16 @@ const resources = source.entries.map((entry) => ({
     kind: entry.preview_kind,
     silhouette: entry.silhouette
   },
+  discovery: {
+    commitment: entry.discovery_commitment
+  },
   holo: {
-    status: "sealed",
-    commitment: entry.sealed_holo_commitment,
+    status: "candidate-not-published",
+    commitment: null,
     resource_url: null
   },
   growl: {
-    status: "sealed",
+    status: "candidate-not-published",
     commitment: null,
     resource_url: null
   },
@@ -166,7 +182,7 @@ const controls = [
   { id: "FRAME", title: "16 x 16", detail: "251 Holo organisms + 5 control cells" },
   { id: "BURN", title: "10 FRAMES", detail: "Ten mutation and market-learning epochs" },
   { id: "OWNER", title: "251 / 251", detail: "RapterBox LLC through rappter.com" },
-  { id: "STATE", title: "SEALED", detail: "All Holos and Growls undiscovered" }
+  { id: "STATE", title: "CATALOG", detail: "Candidates not published" }
 ].map((control, index) => ({
   kind: "control",
   slot: 251 + index,
@@ -240,6 +256,19 @@ writeJson(path.join(api, "openapi.json"), {
     },
     "/api/v1/release/latest.json": {
       get: { summary: "Read and verify the latest release stamp" }
+    },
+    "/api/v1/schema/{name}.schema.json": {
+      get: {
+        summary: "Read one public Holodex application schema",
+        parameters: [
+          {
+            name: "name",
+            in: "path",
+            required: true,
+            schema: { type: "string" }
+          }
+        ]
+      }
     }
   }
 });
@@ -254,7 +283,8 @@ const releaseFiles = [
   "api/v1/dealer/index.json",
   "api/v1/frame/first-edition.json",
   ...resources.map((resource) => `api/v1/species/${resource.id.toLowerCase()}.json`),
-  ...pages.map((_, index) => `api/v1/species/page/${index + 1}.json`)
+  ...pages.map((_, index) => `api/v1/species/page/${index + 1}.json`),
+  ...schemaFiles.map((name) => `api/v1/schema/${name}`)
 ];
 const hashes = Object.fromEntries(
   releaseFiles.map((relative) => [
@@ -274,6 +304,7 @@ const manifest = {
   frame_sha256: frame.frame_hash,
   organism_count: 251,
   revealed_count: 0,
+  schema_count: schemaFiles.length,
   ownership: {
     "RapterBox LLC": 251
   },
@@ -284,5 +315,5 @@ const manifest = {
 };
 writeJson(path.join(releaseDir, "latest.json"), manifest);
 
-console.log(`Built Holodex with ${resources.length} sealed resources.`);
+console.log(`Built Holodex with ${resources.length} undiscovered catalog resources.`);
 console.log(`Frame ${frame.frame_hash}`);

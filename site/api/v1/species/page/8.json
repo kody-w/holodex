@@ -1,127 +1,127 @@
 {
   "count": 251,
-  "next": "http://127.0.0.1:18080/api/v1/species/page/9.json",
-  "previous": "http://127.0.0.1:18080/api/v1/species/page/7.json",
+  "next": "https://kody-w.github.io/holodex/api/v1/species/page/9.json",
+  "previous": "https://kody-w.github.io/holodex/api/v1/species/page/7.json",
   "results": [
     {
       "name": null,
       "id": "G141",
       "status": "undiscovered",
-      "url": "http://127.0.0.1:18080/api/v1/species/g141.json"
+      "url": "https://kody-w.github.io/holodex/api/v1/species/g141.json"
     },
     {
       "name": null,
       "id": "G142",
       "status": "undiscovered",
-      "url": "http://127.0.0.1:18080/api/v1/species/g142.json"
+      "url": "https://kody-w.github.io/holodex/api/v1/species/g142.json"
     },
     {
       "name": null,
       "id": "G143",
       "status": "undiscovered",
-      "url": "http://127.0.0.1:18080/api/v1/species/g143.json"
+      "url": "https://kody-w.github.io/holodex/api/v1/species/g143.json"
     },
     {
       "name": null,
       "id": "G144",
       "status": "undiscovered",
-      "url": "http://127.0.0.1:18080/api/v1/species/g144.json"
+      "url": "https://kody-w.github.io/holodex/api/v1/species/g144.json"
     },
     {
       "name": null,
       "id": "G145",
       "status": "undiscovered",
-      "url": "http://127.0.0.1:18080/api/v1/species/g145.json"
+      "url": "https://kody-w.github.io/holodex/api/v1/species/g145.json"
     },
     {
       "name": null,
       "id": "G146",
       "status": "undiscovered",
-      "url": "http://127.0.0.1:18080/api/v1/species/g146.json"
+      "url": "https://kody-w.github.io/holodex/api/v1/species/g146.json"
     },
     {
       "name": null,
       "id": "G147",
       "status": "undiscovered",
-      "url": "http://127.0.0.1:18080/api/v1/species/g147.json"
+      "url": "https://kody-w.github.io/holodex/api/v1/species/g147.json"
     },
     {
       "name": null,
       "id": "G148",
       "status": "undiscovered",
-      "url": "http://127.0.0.1:18080/api/v1/species/g148.json"
+      "url": "https://kody-w.github.io/holodex/api/v1/species/g148.json"
     },
     {
       "name": null,
       "id": "G149",
       "status": "undiscovered",
-      "url": "http://127.0.0.1:18080/api/v1/species/g149.json"
+      "url": "https://kody-w.github.io/holodex/api/v1/species/g149.json"
     },
     {
       "name": null,
       "id": "G150",
       "status": "undiscovered",
-      "url": "http://127.0.0.1:18080/api/v1/species/g150.json"
+      "url": "https://kody-w.github.io/holodex/api/v1/species/g150.json"
     },
     {
       "name": null,
       "id": "G151",
       "status": "undiscovered",
-      "url": "http://127.0.0.1:18080/api/v1/species/g151.json"
+      "url": "https://kody-w.github.io/holodex/api/v1/species/g151.json"
     },
     {
       "name": null,
       "id": "G152",
       "status": "undiscovered",
-      "url": "http://127.0.0.1:18080/api/v1/species/g152.json"
+      "url": "https://kody-w.github.io/holodex/api/v1/species/g152.json"
     },
     {
       "name": null,
       "id": "G153",
       "status": "undiscovered",
-      "url": "http://127.0.0.1:18080/api/v1/species/g153.json"
+      "url": "https://kody-w.github.io/holodex/api/v1/species/g153.json"
     },
     {
       "name": null,
       "id": "G154",
       "status": "undiscovered",
-      "url": "http://127.0.0.1:18080/api/v1/species/g154.json"
+      "url": "https://kody-w.github.io/holodex/api/v1/species/g154.json"
     },
     {
       "name": null,
       "id": "G155",
       "status": "undiscovered",
-      "url": "http://127.0.0.1:18080/api/v1/species/g155.json"
+      "url": "https://kody-w.github.io/holodex/api/v1/species/g155.json"
     },
     {
       "name": null,
       "id": "G156",
       "status": "undiscovered",
-      "url": "http://127.0.0.1:18080/api/v1/species/g156.json"
+      "url": "https://kody-w.github.io/holodex/api/v1/species/g156.json"
     },
     {
       "name": null,
       "id": "G157",
       "status": "undiscovered",
-      "url": "http://127.0.0.1:18080/api/v1/species/g157.json"
+      "url": "https://kody-w.github.io/holodex/api/v1/species/g157.json"
     },
     {
       "name": null,
       "id": "G158",
       "status": "undiscovered",
-      "url": "http://127.0.0.1:18080/api/v1/species/g158.json"
+      "url": "https://kody-w.github.io/holodex/api/v1/species/g158.json"
     },
     {
       "name": null,
       "id": "G159",
       "status": "undiscovered",
-      "url": "http://127.0.0.1:18080/api/v1/species/g159.json"
+      "url": "https://kody-w.github.io/holodex/api/v1/species/g159.json"
     },
     {
       "name": null,
       "id": "G160",
       "status": "undiscovered",
-      "url": "http://127.0.0.1:18080/api/v1/species/g160.json"
+      "url": "https://kody-w.github.io/holodex/api/v1/species/g160.json"
     }
   ]
 }

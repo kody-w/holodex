@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rappter.com/schemas/owner-instance-hatch-1.json",
+  "title": "Rapter owner instance hatch",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "species_id",
+    "source_edition",
+    "source_dimension",
+    "source_holo_id",
+    "instance_rappid",
+    "dimension_id",
+    "conception_frame_hash",
+    "issuance_index",
+    "credit_id",
+    "owner_ref_hash",
+    "rights_profile_hash",
+    "created_at_utc"
+  ],
+  "properties": {
+    "schema": {
+      "const": "rapp-owner-instance-hatch/1"
+    },
+    "species_id": {
+      "type": "string",
+      "pattern": "^G[0-9]{3}$"
+    },
+    "source_edition": {
+      "const": "first-edition"
+    },
+    "source_dimension": {
+      "const": "first-dimension"
+    },
+    "source_holo_id": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "instance_rappid": {
+      "type": "string",
+      "minLength": 1
+    },
+    "dimension_id": {
+      "type": "string",
+      "pattern": "^dimension:[a-z0-9]+(?:-[a-z0-9]+)*:[a-f0-9]{64}$"
+    },
+    "conception_frame_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "issuance_index": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "credit_id": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "owner_ref_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "rights_profile_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "created_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

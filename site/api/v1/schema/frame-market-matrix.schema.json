@@ -1,0 +1,180 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rapterbox.com/schemas/frame-market-matrix-1.json",
+  "title": "First Dimension Market Mutation Matrix Frame",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "cohort",
+    "mode",
+    "epoch",
+    "previous_matrix_frame_hash",
+    "btc_seed",
+    "epoch_btc_usd_micros",
+    "lens_policy_hash",
+    "rows",
+    "matrix_frame_hash"
+  ],
+  "properties": {
+    "schema": {
+      "const": "rapp-frame-market-matrix/1"
+    },
+    "cohort": {
+      "const": "genesis-251-first-dimension"
+    },
+    "mode": {
+      "enum": [
+        "synthetic-lab-non-executable",
+        "observed-non-executable"
+      ]
+    },
+    "epoch": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9
+    },
+    "previous_matrix_frame_hash": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "btc_seed": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "btc_usd_micros",
+        "source",
+        "observed_at_utc",
+        "response_sha256"
+      ],
+      "properties": {
+        "btc_usd_micros": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "observed_at_utc": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "response_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "epoch_btc_usd_micros": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "lens_policy_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "rows": {
+      "type": "array",
+      "minItems": 251,
+      "maxItems": 251,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "rapter_id",
+          "prior_head",
+          "mutation_proposal_hash",
+          "lens_id",
+          "polarity",
+          "mutation_intensity_bps",
+          "evidence_mode",
+          "confidence_bps",
+          "btc_baseline_usd_cents",
+          "btc_beta_milli",
+          "rapter_alpha_ppm",
+          "market_judgment_bps",
+          "market_delta_usd_cents",
+          "accepted_reference_usd_cents",
+          "rmu"
+        ],
+        "properties": {
+          "rapter_id": {
+            "type": "string",
+            "pattern": "^G[0-9]{3}$"
+          },
+          "prior_head": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "mutation_proposal_hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "lens_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "polarity": {
+            "enum": [
+              "up",
+              "down"
+            ]
+          },
+          "mutation_intensity_bps": {
+            "type": "integer",
+            "minimum": 100,
+            "maximum": 1000
+          },
+          "evidence_mode": {
+            "enum": [
+              "observed",
+              "inferred",
+              "synthetic-lab"
+            ]
+          },
+          "confidence_bps": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "btc_baseline_usd_cents": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "btc_beta_milli": {
+            "const": 1000
+          },
+          "rapter_alpha_ppm": {
+            "type": "integer",
+            "minimum": 500000,
+            "maximum": 2000000
+          },
+          "market_judgment_bps": {
+            "type": "integer",
+            "minimum": -1000,
+            "maximum": 1000
+          },
+          "market_delta_usd_cents": {
+            "type": "integer"
+          },
+          "accepted_reference_usd_cents": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "rmu": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "matrix_frame_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

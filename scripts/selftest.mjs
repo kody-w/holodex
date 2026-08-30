@@ -69,8 +69,9 @@ for (const name of resources) {
     fs.readFileSync(path.join(site, "api/v1/species", name), "utf8")
   );
   assert.equal(resource.reveal.status, "undiscovered");
-  assert.equal(resource.holo.status, "sealed");
-  assert.equal(resource.growl.status, "sealed");
+  assert.equal(resource.holo.status, "candidate-not-published");
+  assert.equal(resource.growl.status, "candidate-not-published");
+  assert.match(resource.discovery.commitment, /^[a-f0-9]{64}$/);
   assert.equal(resource.owner.legal_entity, "RapterBox LLC");
   assert.equal(resource.commerce.source_purchasable, false);
   assert.equal(resource.commerce.owner_copy_hatching_open, false);
@@ -87,4 +88,14 @@ const dealers = JSON.parse(
 assert.equal(dealers.external_certified_count, 0);
 assert.equal(dealers.direct_issuer.legal_name, "RapterBox LLC");
 
-console.log("Holodex: 251 sealed resources, 256-cell frame, release hashes valid");
+const schemas = fs
+  .readdirSync(path.join(site, "api/v1/schema"))
+  .filter((name) => name.endsWith(".schema.json"));
+assert(schemas.length >= 5);
+for (const name of schemas) {
+  JSON.parse(fs.readFileSync(path.join(site, "api/v1/schema", name), "utf8"));
+}
+
+console.log(
+  `Holodex: 251 undiscovered catalog resources, 256-cell frame, ${schemas.length} schemas, release hashes valid`
+);

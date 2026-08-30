@@ -90,8 +90,8 @@ function focus(resource, tile) {
   focusId.textContent = resource.id;
   focusTitle.textContent = "Undiscovered Holo organism";
   focusStatus.textContent =
-    "Source Holo sealed / Growl sealed / owner-scheduled reveal / RapterBox-owned species";
-  focusCommitment.textContent = `Commitment ${resource.holo.commitment}`;
+    "Species slot published / candidate Holo and Growl not published";
+  focusCommitment.textContent = `Discovery commitment ${resource.discovery.commitment}`;
 }
 
 function organismTile(resource) {

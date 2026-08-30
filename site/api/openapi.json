@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "http://127.0.0.1:18080"
+      "url": "https://kody-w.github.io/holodex"
     }
   ],
   "paths": {
@@ -50,6 +50,21 @@
     "/api/v1/release/latest.json": {
       "get": {
         "summary": "Read and verify the latest release stamp"
+      }
+    },
+    "/api/v1/schema/{name}.schema.json": {
+      "get": {
+        "summary": "Read one public Holodex application schema",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
       }
     }
   }

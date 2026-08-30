@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rapterbox.com/schemas/rapterworks-job-lifecycle-1.json",
+  "title": "RapterWorks Job Lifecycle Event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "job_id",
+    "sequence",
+    "event_type",
+    "occurred_at",
+    "rapter_id",
+    "customer_ref_hash",
+    "payload"
+  ],
+  "properties": {
+    "schema": {
+      "const": "rappterworks-job-event/1"
+    },
+    "job_id": {
+      "type": "string",
+      "pattern": "^job_[a-z0-9]{16,64}$"
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "event_type": {
+      "enum": [
+        "requested",
+        "accepted",
+        "refused",
+        "running",
+        "proof_ready",
+        "supervisor_approved",
+        "revision_required",
+        "delivered",
+        "tip_offered",
+        "tip_paid",
+        "tip_declined",
+        "tip_ignored",
+        "rated",
+        "regression_open",
+        "corrected",
+        "redelivered",
+        "closed"
+      ]
+    },
+    "occurred_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "rapter_id": {
+      "type": "string",
+      "pattern": "^G[0-9]{3}$"
+    },
+    "customer_ref_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "payload": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "previous_event_hash": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "event_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

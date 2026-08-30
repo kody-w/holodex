@@ -11,7 +11,7 @@
   </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The official, signed Holodex for RapterBox Holo organisms.">
+  <meta name="description" content="The signed First Edition catalog for 251 undiscovered RapterBox Holo species slots.">
   <title>Holodex / Genesis 251 First Edition</title>
   <style>
     :root {
@@ -84,8 +84,8 @@
     <section class="hero">
       <div>
         <p class="eyebrow">OFFICIAL RAPTERBOX HOLODEX</p>
-        <h1>251 Holo organisms.<br>Zero discovered.</h1>
-        <p class="lede">One sealed First Edition / First Dimension frame. Every cell contains a canonical Holo species and original piano Growl waiting for its signed reveal.</p>
+        <h1>251 Holo species slots.<br>Zero discovered.</h1>
+        <p class="lede">One signed First Edition / First Dimension catalog. Every cell reserves a species slot and authored shadow preview; candidate Holos and Growls remain private pending clearance and reveal.</p>
       </div>
       <dl class="stats">
         <div><dt>Frame</dt><dd>16 x 16</dd></div>
@@ -101,16 +101,16 @@
         <div><p class="eyebrow">FIRST EDITION / FIRST DIMENSION</p><h2>The sealed Holo frame</h2></div>
         <label>Find a slot<input id="search" type="search" placeholder="G097"></label>
       </div>
-      <p id="frame-status" class="muted">Loading the signed frame...</p>
+      <p id="frame-status" class="muted">Loading the signed catalog frame...</p>
       <div class="frame-viewport"><div id="holo-frame" class="holo-frame" aria-label="Genesis 251 First Edition frame"></div></div>
       <aside class="focus-panel" aria-live="polite">
         <div>
           <span id="focus-id" class="mono">G001</span>
           <h3 id="focus-title">Undiscovered Holo organism</h3>
-          <p id="focus-status">Holo sealed / Growl sealed / owner-scheduled reveal</p>
+          <p id="focus-status">Species slot published / candidate Holo and Growl not published</p>
           <p id="focus-commitment" class="mono commitment"></p>
         </div>
-        <button type="button" disabled>Play Growl after reveal</button>
+        <button type="button" disabled>Growl unavailable until cleared reveal</button>
       </aside>
     </section>
 
@@ -124,6 +124,7 @@
         <code>GET /api/v1/dealer/index.json</code>
         <code>GET /api/v1/frame/first-edition.json</code>
         <code>GET /api/v1/release/latest.json</code>
+        <code>GET /api/v1/schema/dogg-market-profile.schema.json</code>
         <code>GET /api/openapi.json</code>
       </div>
       <p class="muted">Cache responses locally. The API never accepts credentials, payments, trades, or private customer content.</p>

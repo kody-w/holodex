@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rappter.com/schemas/evolution-sponsorship-1.json",
+  "title": "Rapter paid evolution sponsorship",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "order_id",
+    "target",
+    "species_id",
+    "lens_ids",
+    "candidate_frames",
+    "compute_budget_minor",
+    "currency",
+    "review_level",
+    "price_minor",
+    "delivered_frames",
+    "delivery_status",
+    "canon_acceptance_guaranteed"
+  ],
+  "properties": {
+    "schema": {
+      "const": "rapp-evolution-sponsorship/1"
+    },
+    "order_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "target": {
+      "enum": [
+        "owner-instance",
+        "canonical-species-candidate"
+      ]
+    },
+    "species_id": {
+      "type": "string",
+      "pattern": "^G[0-9]{3}$"
+    },
+    "instance_rappid": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "lens_ids": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 16,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128
+      }
+    },
+    "candidate_frames": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1024
+    },
+    "compute_budget_minor": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "currency": {
+      "type": "string",
+      "pattern": "^[A-Z]{3}$"
+    },
+    "review_level": {
+      "enum": [
+        "automated",
+        "premium-model",
+        "human-reviewed",
+        "founder-reviewed"
+      ]
+    },
+    "price_minor": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "delivered_frames": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "delivery_status": {
+      "enum": [
+        "ordered",
+        "running",
+        "delivered",
+        "refunded",
+        "cancelled"
+      ]
+    },
+    "canon_acceptance_guaranteed": {
+      "type": "boolean"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "target": {
+            "const": "owner-instance"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "instance_rappid"
+        ],
+        "properties": {
+          "instance_rappid": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "target": {
+            "const": "canonical-species-candidate"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "instance_rappid": {
+            "type": "null"
+          },
+          "canon_acceptance_guaranteed": {
+            "const": false
+          }
+        }
+      }
+    }
+  ]
+}

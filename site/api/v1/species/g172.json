@@ -27,13 +27,16 @@
       "drift": 3
     }
   },
+  "discovery": {
+    "commitment": "f52a7e59c6ba9db9ca652f7e20f058c85506cf2fc6b1ad3a38f02f314cc3e16d"
+  },
   "holo": {
-    "status": "sealed",
-    "commitment": "7e3b5861c790a567c283394612549579f9958c8ff7dc691b4de50c1b11aa794e",
+    "status": "candidate-not-published",
+    "commitment": null,
     "resource_url": null
   },
   "growl": {
-    "status": "sealed",
+    "status": "candidate-not-published",
     "commitment": null,
     "resource_url": null
   },

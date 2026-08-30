@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rappter.com/schemas/dealer-profile-1.json",
+  "title": "RapterBox certified dealer profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "dealer_rappid",
+    "legal_name",
+    "status",
+    "jurisdictions",
+    "channels",
+    "product_classes",
+    "starts_at_utc",
+    "expires_at_utc",
+    "conformance_version",
+    "fee_policy_hash",
+    "complaints_uri",
+    "certification_frame_hash"
+  ],
+  "properties": {
+    "schema": {
+      "const": "rapp-dealer-certification/1"
+    },
+    "dealer_rappid": {
+      "type": "string",
+      "minLength": 1
+    },
+    "legal_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "status": {
+      "enum": [
+        "candidate",
+        "certified",
+        "probation",
+        "suspended",
+        "revoked",
+        "expired"
+      ]
+    },
+    "jurisdictions": {
+      "type": "array",
+      "maxItems": 128,
+      "items": {
+        "type": "string",
+        "minLength": 2,
+        "maxLength": 64
+      }
+    },
+    "channels": {
+      "type": "array",
+      "maxItems": 32,
+      "items": {
+        "enum": [
+          "shopify",
+          "in-person",
+          "enterprise",
+          "approved-resale",
+          "job-supervision"
+        ]
+      }
+    },
+    "product_classes": {
+      "type": "array",
+      "maxItems": 64,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128
+      }
+    },
+    "starts_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expires_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "conformance_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "fee_policy_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "complaints_uri": {
+      "type": "string",
+      "format": "uri"
+    },
+    "certification_frame_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}
