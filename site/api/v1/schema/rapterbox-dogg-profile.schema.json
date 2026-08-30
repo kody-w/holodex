@@ -600,15 +600,15 @@
         "median_suggested_tip_ratio_bps": {
           "type": "integer",
           "minimum": 0,
-          "maximum": 2500
+          "maximum": 20000
         },
         "patronage_score_bps": {
           "type": "integer",
           "minimum": 0,
-          "maximum": 2500
+          "maximum": 20000
         },
         "patronage_score_cap_bps": {
-          "const": 2500
+          "const": 20000
         }
       }
     }
