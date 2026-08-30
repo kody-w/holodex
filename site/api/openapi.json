@@ -1,0 +1,56 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Holodex API",
+    "version": "1.0.0",
+    "description": "Static GET-only API for signed RapterBox Holo organism releases."
+  },
+  "servers": [
+    {
+      "url": "https://holodex.rappter.com"
+    }
+  ],
+  "paths": {
+    "/api/v1/species/index.json": {
+      "get": {
+        "summary": "List every canonical Holodex species resource"
+      }
+    },
+    "/api/v1/species/{id}.json": {
+      "get": {
+        "summary": "Read one canonical Holo species resource",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^g[0-9]{3}$"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v1/instance/index.json": {
+      "get": {
+        "summary": "List publicly indexed player-owned instances"
+      }
+    },
+    "/api/v1/dealer/index.json": {
+      "get": {
+        "summary": "List current RapterBox certified dealers"
+      }
+    },
+    "/api/v1/frame/first-edition.json": {
+      "get": {
+        "summary": "Read the complete First Edition 16 by 16 frame"
+      }
+    },
+    "/api/v1/release/latest.json": {
+      "get": {
+        "summary": "Read and verify the latest release stamp"
+      }
+    }
+  }
+}

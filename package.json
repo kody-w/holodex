@@ -1,0 +1,11 @@
+{
+  "name": "@rappter/holodex",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node scripts/selftest.mjs",
+    "sign": "node scripts/sign-release.mjs"
+  }
+}

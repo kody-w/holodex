@@ -1,0 +1,358 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cp-bg);
+  color: var(--cp-text);
+  font-family: "Segoe UI", Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+a {
+  color: var(--cp-link);
+}
+
+.site-header,
+main,
+footer {
+  width: min(92rem, calc(100% - 2.5rem));
+  margin-inline: auto;
+}
+
+.site-header {
+  min-height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--cp-border);
+}
+
+.brand {
+  color: var(--cp-text);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  color: var(--cp-text-muted);
+  text-decoration: none;
+}
+
+.hero {
+  min-height: 72vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr);
+  gap: 3rem;
+  align-items: center;
+  padding-block: 5rem;
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  color: var(--cp-accent);
+  font: 700 0.78rem/1.2 Consolas, "Courier New", Courier, monospace;
+  letter-spacing: 0.14em;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 1.5rem;
+  font-size: clamp(3.2rem, 8vw, 7.5rem);
+  line-height: 0.94;
+  letter-spacing: -0.07em;
+}
+
+h2 {
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: -0.055em;
+}
+
+.lede {
+  max-width: 48rem;
+  color: var(--cp-text-muted);
+  font-size: clamp(1.05rem, 2vw, 1.4rem);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--cp-border);
+  border-radius: 16px;
+  background: var(--cp-surface);
+  box-shadow: var(--cp-shadow);
+}
+
+.stats div {
+  padding: 1.25rem;
+  border: 1px solid var(--cp-border);
+}
+
+.stats dt {
+  color: var(--cp-text-muted);
+  font-size: 0.78rem;
+}
+
+.stats dd {
+  margin: 0.4rem 0 0;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.frame-section,
+.api-section {
+  padding-block: 5rem;
+  border-top: 1px solid var(--cp-border);
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: end;
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: grid;
+  gap: 0.45rem;
+  color: var(--cp-text-muted);
+  font-size: 0.8rem;
+}
+
+input {
+  min-height: 2.8rem;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--cp-border);
+  border-radius: 0.625rem;
+  color: var(--cp-text);
+  background: var(--cp-surface);
+  font: inherit;
+}
+
+input:focus {
+  outline: 2px solid var(--cp-accent);
+  outline-offset: 2px;
+}
+
+.muted {
+  color: var(--cp-text-muted);
+}
+
+.frame-viewport {
+  overflow: auto;
+  padding: 0.5rem;
+  border: 1px solid var(--cp-border);
+  border-radius: 16px;
+  background: var(--cp-bg-elevated);
+  box-shadow: var(--cp-shadow);
+}
+
+.holo-frame {
+  display: grid;
+  grid-template-columns: repeat(16, minmax(3.7rem, 1fr));
+  min-width: 72rem;
+  aspect-ratio: 1;
+  gap: 0.25rem;
+}
+
+.tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 0.3rem;
+  overflow: hidden;
+  border: 1px solid var(--cp-border);
+  border-radius: 0.625rem;
+  color: var(--cp-text);
+  background: var(--cp-surface);
+  cursor: pointer;
+}
+
+.tile:hover,
+.tile:focus-visible,
+.tile[aria-pressed="true"] {
+  z-index: 2;
+  border-color: var(--cp-accent);
+  outline: none;
+}
+
+.tile.dimmed {
+  opacity: 0.14;
+}
+
+.tile.control {
+  justify-content: center;
+  border-color: var(--cp-accent);
+  background: var(--cp-accent-soft);
+  cursor: default;
+}
+
+.tile-id,
+.mono {
+  font-family: Consolas, "Courier New", Courier, monospace;
+}
+
+.tile-id {
+  position: relative;
+  z-index: 4;
+  font-size: 0.55rem;
+  font-weight: 700;
+}
+
+.tile-state {
+  position: relative;
+  z-index: 4;
+  margin-top: auto;
+  color: var(--cp-text-muted);
+  font: 700 0.42rem/1 Consolas, "Courier New", Courier, monospace;
+}
+
+.silhouette,
+.silhouette::before,
+.silhouette::after,
+.silhouette span {
+  position: absolute;
+  inset: 18%;
+  border: 1px solid var(--cp-border-strong);
+  background: var(--cp-text);
+  opacity: 0.24;
+  transform: rotate(calc(var(--phase) + var(--layer, 1) * 19deg));
+}
+
+.silhouette {
+  inset: 0.3rem;
+  border: 0;
+  background: var(--cp-highlight);
+  opacity: 1;
+}
+
+.silhouette::before,
+.silhouette::after {
+  content: "";
+  border-radius: 50%;
+}
+
+.silhouette::after {
+  inset: 30%;
+  opacity: 0.65;
+}
+
+.silhouette.ring span {
+  border: 4px solid var(--cp-text);
+  border-radius: 50%;
+  background: transparent;
+}
+
+.silhouette.spire span {
+  border-radius: 50% 50% 0.625rem 0.625rem;
+}
+
+.silhouette.field span {
+  border-radius: 0.625rem;
+}
+
+.control-title {
+  margin-top: 0.35rem;
+  font-size: 0.62rem;
+}
+
+.control-detail {
+  margin-top: 0.25rem;
+  color: var(--cp-text-muted);
+  font-size: 0.45rem;
+}
+
+.focus-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--cp-border);
+  border-radius: 16px;
+  background: var(--cp-surface);
+}
+
+.focus-panel h3 {
+  margin: 0.3rem 0;
+}
+
+.commitment {
+  overflow-wrap: anywhere;
+  color: var(--cp-text-muted);
+  font-size: 0.72rem;
+}
+
+button {
+  min-height: 2.8rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--cp-border);
+  border-radius: 0.625rem;
+  color: var(--cp-text-muted);
+  background: var(--cp-surface-soft);
+  font: inherit;
+}
+
+.endpoint-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-block: 1.5rem;
+}
+
+code {
+  padding: 1rem;
+  overflow-wrap: anywhere;
+  border: 1px solid var(--cp-border);
+  border-radius: 0.625rem;
+  background: var(--cp-surface);
+  font-family: Consolas, "Courier New", Courier, monospace;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-block: 2rem 4rem;
+  border-top: 1px solid var(--cp-border);
+  color: var(--cp-text-muted);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 760px) {
+  nav {
+    display: none;
+  }
+  .hero,
+  .focus-panel,
+  .endpoint-grid {
+    grid-template-columns: 1fr;
+  }
+  .section-head,
+  footer {
+    align-items: start;
+    flex-direction: column;
+  }
+}

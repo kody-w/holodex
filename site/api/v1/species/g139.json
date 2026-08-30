@@ -1,0 +1,47 @@
+{
+  "schema": "holodex-species/1",
+  "id": "G139",
+  "generation": "genesis-251-first-dimension",
+  "slot": 138,
+  "frame_cut": {
+    "row": 8,
+    "column": 10,
+    "rows": 16,
+    "columns": 16
+  },
+  "reveal": {
+    "status": "undiscovered",
+    "reveal_after_utc": null
+  },
+  "owner": {
+    "legal_entity": "RapterBox LLC",
+    "surface": "rappter.com",
+    "status": "issuer-owned"
+  },
+  "preview": {
+    "kind": "authored-shadow-silhouette",
+    "silhouette": {
+      "form": "spire",
+      "phase": 240,
+      "layers": 2,
+      "drift": 5
+    }
+  },
+  "holo": {
+    "status": "sealed",
+    "commitment": "ee9328a28f40691dd7ce189acc171c251606e14af36002e090e6f194c356fc44",
+    "resource_url": null
+  },
+  "growl": {
+    "status": "sealed",
+    "commitment": null,
+    "resource_url": null
+  },
+  "commerce": {
+    "source_purchasable": false,
+    "owner_copy_hatching_open": false,
+    "job_commissions_open": false,
+    "spot_market_open": false,
+    "forecast_market_mode": "non-cash-lab-only"
+  }
+}

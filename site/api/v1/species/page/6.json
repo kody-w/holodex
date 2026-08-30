@@ -1,0 +1,127 @@
+{
+  "count": 251,
+  "next": "/api/v1/species/page/7.json",
+  "previous": "/api/v1/species/page/5.json",
+  "results": [
+    {
+      "name": null,
+      "id": "G101",
+      "status": "undiscovered",
+      "url": "/api/v1/species/g101.json"
+    },
+    {
+      "name": null,
+      "id": "G102",
+      "status": "undiscovered",
+      "url": "/api/v1/species/g102.json"
+    },
+    {
+      "name": null,
+      "id": "G103",
+      "status": "undiscovered",
+      "url": "/api/v1/species/g103.json"
+    },
+    {
+      "name": null,
+      "id": "G104",
+      "status": "undiscovered",
+      "url": "/api/v1/species/g104.json"
+    },
+    {
+      "name": null,
+      "id": "G105",
+      "status": "undiscovered",
+      "url": "/api/v1/species/g105.json"
+    },
+    {
+      "name": null,
+      "id": "G106",
+      "status": "undiscovered",
+      "url": "/api/v1/species/g106.json"
+    },
+    {
+      "name": null,
+      "id": "G107",
+      "status": "undiscovered",
+      "url": "/api/v1/species/g107.json"
+    },
+    {
+      "name": null,
+      "id": "G108",
+      "status": "undiscovered",
+      "url": "/api/v1/species/g108.json"
+    },
+    {
+      "name": null,
+      "id": "G109",
+      "status": "undiscovered",
+      "url": "/api/v1/species/g109.json"
+    },
+    {
+      "name": null,
+      "id": "G110",
+      "status": "undiscovered",
+      "url": "/api/v1/species/g110.json"
+    },
+    {
+      "name": null,
+      "id": "G111",
+      "status": "undiscovered",
+      "url": "/api/v1/species/g111.json"
+    },
+    {
+      "name": null,
+      "id": "G112",
+      "status": "undiscovered",
+      "url": "/api/v1/species/g112.json"
+    },
+    {
+      "name": null,
+      "id": "G113",
+      "status": "undiscovered",
+      "url": "/api/v1/species/g113.json"
+    },
+    {
+      "name": null,
+      "id": "G114",
+      "status": "undiscovered",
+      "url": "/api/v1/species/g114.json"
+    },
+    {
+      "name": null,
+      "id": "G115",
+      "status": "undiscovered",
+      "url": "/api/v1/species/g115.json"
+    },
+    {
+      "name": null,
+      "id": "G116",
+      "status": "undiscovered",
+      "url": "/api/v1/species/g116.json"
+    },
+    {
+      "name": null,
+      "id": "G117",
+      "status": "undiscovered",
+      "url": "/api/v1/species/g117.json"
+    },
+    {
+      "name": null,
+      "id": "G118",
+      "status": "undiscovered",
+      "url": "/api/v1/species/g118.json"
+    },
+    {
+      "name": null,
+      "id": "G119",
+      "status": "undiscovered",
+      "url": "/api/v1/species/g119.json"
+    },
+    {
+      "name": null,
+      "id": "G120",
+      "status": "undiscovered",
+      "url": "/api/v1/species/g120.json"
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script>
+    (() => {
+      const param = new URLSearchParams(window.location.search).get("scoutTheme");
+      const theme =
+        param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The official, signed Holodex for RapterBox Holo organisms.">
+  <title>Holodex / Genesis 251 First Edition</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --cp-bg: #f7f4ef;
+      --cp-bg-elevated: #fcfbf8;
+      --cp-surface: #ffffff;
+      --cp-surface-soft: #f5f5f5;
+      --cp-border: #dedede;
+      --cp-border-strong: #919191;
+      --cp-text: #242424;
+      --cp-text-muted: #5c5c5c;
+      --cp-text-soft: #6f6f6f;
+      --cp-accent: #b11f4b;
+      --cp-accent-hover: #9a1a41;
+      --cp-accent-soft: rgba(177, 31, 75, 0.08);
+      --cp-accent-fg: #ffffff;
+      --cp-success: #16a34a;
+      --cp-danger: #dc2626;
+      --cp-warning: #f59e0b;
+      --cp-link: #0078d4;
+      --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.12);
+      --cp-overlay: rgba(255, 255, 255, 0.8);
+      --cp-panel: rgba(255, 255, 255, 0.86);
+      --cp-panel-strong: rgba(255, 255, 255, 0.96);
+      --cp-sheen: rgba(255, 255, 255, 0.55);
+      --cp-highlight: rgba(177, 31, 75, 0.12);
+    }
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --cp-bg: #3d3b3a;
+      --cp-bg-elevated: #343231;
+      --cp-surface: #292929;
+      --cp-surface-soft: #2e2e2e;
+      --cp-border: #474747;
+      --cp-border-strong: #5f5f5f;
+      --cp-text: #dedede;
+      --cp-text-muted: #919191;
+      --cp-text-soft: #b0b0b0;
+      --cp-accent: #fd8ea1;
+      --cp-accent-hover: #fb7b91;
+      --cp-accent-soft: rgba(253, 142, 161, 0.14);
+      --cp-accent-fg: #1a1a1a;
+      --cp-success: #4ade80;
+      --cp-danger: #f87171;
+      --cp-warning: #fbbf24;
+      --cp-link: #4da6ff;
+      --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+      --cp-overlay: rgba(41, 41, 41, 0.88);
+      --cp-panel: rgba(41, 41, 41, 0.72);
+      --cp-panel-strong: rgba(41, 41, 41, 0.96);
+      --cp-sheen: rgba(255, 255, 255, 0.04);
+      --cp-highlight: rgba(253, 142, 161, 0.12);
+    }
+  </style>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./">H/ Holodex</a>
+    <nav aria-label="Primary">
+      <a href="#frame">First Edition</a>
+      <a href="#api">API</a>
+      <a href="./api/v1/release/latest.json">Release stamp</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">OFFICIAL RAPTERBOX HOLODEX</p>
+        <h1>251 Holo organisms.<br>Zero discovered.</h1>
+        <p class="lede">One sealed First Edition / First Dimension frame. Every cell contains a canonical Holo species and original piano Growl waiting for its signed reveal.</p>
+      </div>
+      <dl class="stats">
+        <div><dt>Frame</dt><dd>16 x 16</dd></div>
+        <div><dt>Organisms</dt><dd>251</dd></div>
+        <div><dt>Source owner</dt><dd>RapterBox LLC</dd></div>
+        <div><dt>Revealed</dt><dd id="revealed-count">0 / 251</dd></div>
+      </dl>
+    </section>
+
+    <section id="frame" class="frame-section">
+      <div class="section-head">
+        <div><p class="eyebrow">FIRST EDITION / FIRST DIMENSION</p><h2>The sealed Holo frame</h2></div>
+        <label>Find a slot<input id="search" type="search" placeholder="G097"></label>
+      </div>
+      <p id="frame-status" class="muted">Loading the signed frame...</p>
+      <div class="frame-viewport"><div id="holo-frame" class="holo-frame" aria-label="Genesis 251 First Edition frame"></div></div>
+      <aside class="focus-panel" aria-live="polite">
+        <div>
+          <span id="focus-id" class="mono">G001</span>
+          <h3 id="focus-title">Undiscovered Holo organism</h3>
+          <p id="focus-status">Holo sealed / Growl sealed / owner-scheduled reveal</p>
+          <p id="focus-commitment" class="mono commitment"></p>
+        </div>
+        <button type="button" disabled>Play Growl after reveal</button>
+      </aside>
+    </section>
+
+    <section id="api" class="api-section">
+      <p class="eyebrow">GET-ONLY / STATIC / CACHEABLE</p>
+      <h2>A PokeAPI-style index for Holos.</h2>
+      <div class="endpoint-grid">
+        <code>GET /api/v1/species/index.json</code>
+        <code>GET /api/v1/species/g001.json</code>
+        <code>GET /api/v1/instance/index.json</code>
+        <code>GET /api/v1/dealer/index.json</code>
+        <code>GET /api/v1/frame/first-edition.json</code>
+        <code>GET /api/v1/release/latest.json</code>
+        <code>GET /api/openapi.json</code>
+      </div>
+      <p class="muted">Cache responses locally. The API never accepts credentials, payments, trades, or private customer content.</p>
+    </section>
+  </main>
+
+  <footer>
+    <span>Published by RapterBox LLC through rappter.com.</span>
+    <span>Metadata API open for consumption. Player-instance Holo and Growl rights follow signed title records.</span>
+  </footer>
+</body>
+</html>
