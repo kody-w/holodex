@@ -90,7 +90,7 @@ function focus(resource, tile) {
   focusId.textContent = resource.id;
   focusTitle.textContent = "Undiscovered Holo organism";
   focusStatus.textContent =
-    "Species slot published / candidate Holo and Growl not published";
+    "Species slot published / catalog controlled by RapterBox / rights clearance pending";
   focusCommitment.textContent = `Discovery commitment ${resource.discovery.commitment}`;
 }
 

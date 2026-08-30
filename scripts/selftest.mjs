@@ -72,7 +72,8 @@ for (const name of resources) {
   assert.equal(resource.holo.status, "candidate-not-published");
   assert.equal(resource.growl.status, "candidate-not-published");
   assert.match(resource.discovery.commitment, /^[a-f0-9]{64}$/);
-  assert.equal(resource.owner.legal_entity, "RapterBox LLC");
+  assert.equal(resource.catalog_control.legal_entity, "RapterBox LLC");
+  assert.equal(resource.catalog_control.rights_status, "clearance-pending");
   assert.equal(resource.commerce.source_purchasable, false);
   assert.equal(resource.commerce.owner_copy_hatching_open, false);
 }

@@ -9,7 +9,7 @@
   "organism_tiles": 251,
   "control_tiles": 5,
   "reveal_count": 0,
-  "current_owner_summary": {
+  "catalog_control_summary": {
     "RapterBox LLC": 251
   },
   "tiles": [
@@ -2053,9 +2053,9 @@
       "slot": 254,
       "row": 15,
       "column": 14,
-      "id": "OWNER",
+      "id": "CONTROL",
       "title": "251 / 251",
-      "detail": "RapterBox LLC through rappter.com"
+      "detail": "RapterBox catalog control"
     },
     {
       "kind": "control",
@@ -2067,5 +2067,5 @@
       "detail": "Candidates not published"
     }
   ],
-  "frame_hash": "651c989673cab38fbdc0a0b89e9be9f27cbb57c9c146c74b88c702db47ecd222"
+  "frame_hash": "86f5024498ea6b136602b9847d380d594299a8381fcb5442b08c4db57a22ac07"
 }

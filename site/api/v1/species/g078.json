@@ -13,10 +13,11 @@
     "status": "undiscovered",
     "reveal_after_utc": null
   },
-  "owner": {
+  "catalog_control": {
     "legal_entity": "RapterBox LLC",
     "surface": "rappter.com",
-    "status": "issuer-owned"
+    "status": "issuer-owned",
+    "rights_status": "clearance-pending"
   },
   "preview": {
     "kind": "authored-shadow-silhouette",

@@ -95,10 +95,11 @@ const resources = source.entries.map((entry) => ({
     status: "undiscovered",
     reveal_after_utc: entry.reveal_after_utc
   },
-  owner: {
-    legal_entity: entry.current_owner,
-    surface: entry.owner_surface,
-    status: entry.ownership_status
+  catalog_control: {
+    legal_entity: entry.catalog_controller,
+    surface: entry.controller_surface,
+    status: entry.catalog_status,
+    rights_status: entry.rights_status
   },
   preview: {
     kind: entry.preview_kind,
@@ -181,7 +182,7 @@ const controls = [
   { id: "EDITION", title: "FIRST DIMENSION", detail: "Genesis 251 / First Edition" },
   { id: "FRAME", title: "16 x 16", detail: "251 Holo organisms + 5 control cells" },
   { id: "BURN", title: "10 FRAMES", detail: "Ten mutation and market-learning epochs" },
-  { id: "OWNER", title: "251 / 251", detail: "RapterBox LLC through rappter.com" },
+  { id: "CONTROL", title: "251 / 251", detail: "RapterBox catalog control" },
   { id: "STATE", title: "CATALOG", detail: "Candidates not published" }
 ].map((control, index) => ({
   kind: "control",
@@ -199,7 +200,7 @@ const frameWithoutHash = {
   organism_tiles: 251,
   control_tiles: 5,
   reveal_count: 0,
-  current_owner_summary: {
+  catalog_control_summary: {
     "RapterBox LLC": 251
   },
   tiles: [
@@ -305,7 +306,7 @@ const manifest = {
   organism_count: 251,
   revealed_count: 0,
   schema_count: schemaFiles.length,
-  ownership: {
+  catalog_control: {
     "RapterBox LLC": 251
   },
   files: hashes,

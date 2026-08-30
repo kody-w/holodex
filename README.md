@@ -8,7 +8,8 @@ The First Edition / First Dimension is one 16 by 16 Holo frame:
 - 251 signed canonical species slots with authored shadow previews;
 - 5 frame/control/provenance tiles;
 - 0 revealed organisms at initial publication;
-- 251 of 251 source species owned by RapterBox LLC through `rappter.com`.
+- 251 of 251 catalog slots controlled by RapterBox LLC through `rappter.com`;
+  candidate source-content rights remain clearance-pending.
 
 Each tile is a generation-bound cut of the edition frame. Before clearance, it
 contains only a discovery commitment and shadow preview. A later signed reveal
